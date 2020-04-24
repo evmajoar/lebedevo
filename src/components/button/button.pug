@@ -1,0 +1,21 @@
+mixin button(title, mods)
+
+  -
+    //- класс блока
+    var className = 'button';
+
+    //- список модификаторов
+    var allMods = '';
+    if (typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods += ' ' + className + '--' + modsList[i].trim();
+      }
+    }
+
+  if(attributes.href)
+    a(class=className + allMods)&attributes(attributes)
+      span= title
+  else
+    button(class=className + allMods)&attributes(attributes)
+      span= title

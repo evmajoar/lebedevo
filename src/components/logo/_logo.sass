@@ -1,0 +1,15 @@
+//- Стили компонента Logo.
+@import "../../library/variables.sass"
+@import "../../library/mixins.sass"
+
+.logo
+  $component: & // #{component}__element
+
+  &--green
+    display: none
+    @include breakPoint(md)
+      display: block
+
+    img
+      width: 69px
+      height: 50px  

@@ -1,0 +1,33 @@
+//- Компонент Logo.
+
+mixin logo(imgName, imgExt, imgWidth, imgHeight, mods)
+
+  //- описание аргументов функции
+    imgName   - имя файла с изображением : string
+    imgExt    - расширение файла : string
+    imgWidth  - ширина изображение : number
+    imgHeight - высота изображение : number
+    mods      - модификаторы (через запятую) : string
+
+  -
+    //- класс блока
+    var className = 'logo';
+
+    //- список модификаторов
+    var allMods = '';
+    if (typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods += ' ' + className + '--' + modsList[i].trim();
+      }
+    }
+
+    var strWidth  = imgWidth.toString();
+    var strHeight = imgHeight.toString();
+
+  if (attributes.href)
+    a(class=className + allMods)&attributes(attributes)
+      img(src=(imagePath + imgName + '.' + imgExt), title=siteName, alt=siteName, width=strWidth, height=strHeight)
+  else
+    div(class=className + allMods)&attributes(attributes)
+      img(src=(imagePath + imgName + '.' + imgExt), title=siteName, alt=siteName, width=strWidth, height=strHeight)

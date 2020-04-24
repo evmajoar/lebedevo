@@ -1,0 +1,29 @@
+// Стили блока Page
+@import "../../library/variables.sass"
+@import "../../library/mixins.sass"
+
+.page
+  box-sizing: border-box
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+  -webkit-text-size-adjust: 100%
+  min-width: $screen-xs
+
+  &__inner
+    display: flex
+    flex-direction: column
+    align-items: stretch
+    justify-content: flex-start
+    min-height: 100vh
+
+  &__footer-wrapper
+    flex-shrink: 0
+    margin-top: auto
+
+// Хэлперы
+.grid-container
+  display: grid
+  margin: 0 auto
+  max-width: $container-xl
+
+  @include breakPoint(xl)
+    @include gridRow($grid-columns, $screen-xl, $grid-gutter-width)

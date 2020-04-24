@@ -1,0 +1,61 @@
+//- Главная страница
+extends ../../layout/layout.pug
+
+block meta
+
+  include main.data.pug
+
+  title=title + ' | ' + siteName
+  meta(name='description', content=description)
+  meta(name='keywords', content=keywords)
+
+  //- Разметка Open Graph
+    meta(property='og:title', content=title)
+    meta(property='og:description', content=description)
+    meta(property='og:type', content='website')
+    meta(property='og:url', content=siteURL)
+    meta(property='og:locale', content=language + '_' + language.toUpperCase())
+    meta(property='og:image', content=imagePath + 'poster.png')
+    meta(property='og:image:type', content='image/png')
+    meta(property='og:image:height', content='512')
+    meta(property='og:image:width', content='512')
+    meta(property='og:site_name', content=siteName)
+
+  //- Разметка Twitter Card
+    meta(name='twitter:card', content='summary')
+    meta(name='twitter:title', content=title)
+    meta(name='twitter:description', content=description)
+    meta(name='twitter:image', content=imagePath + 'poster.png')
+    meta(name='twitter:site', content=siteName)
+
+block append head
+  link(rel='canonical' href=siteURL + siteURN)
+  link(rel='stylesheet' href='styles/' + fileName + '.css')
+
+include ../../components/logo/logo.pug
+include ../../components/nav/nav.pug
+
+block header
+  .top-bar.grid-container
+    +logo('logo-green', 'png', 69, 50, 'green')
+    +nav('nav', true)
+    p.top-bar__contacts
+      +button('+375(29) 675-78-56', 'lnk-phone')(href='tel:+375296757856')
+      +button('заказать звонок', 'lnk-underline')(href='#')
+  .main-header__content.grid-container
+    .main-header__content-wrapper
+      +logo('logo-white', 'png', 152, 111, 'white')
+      h1.main-header__content-title Коттеджный поселок Лебедево
+      p.main-header__content-description
+        strong Место, в котором хочется жить
+        | постройте свой загородный дом и наслаждайтесь настоящей жизнью на природе
+      p.main-header__content-buttons
+        +button('Записаться на экскурсию', 'btn-transparent')
+        +button('Оставить заявку', 'btn-orange')
+
+block content
+
+block footer
+
+block append foot
+  script(src='scripts/' + fileName + '.js')

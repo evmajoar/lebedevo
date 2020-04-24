@@ -1,0 +1,19 @@
+//- Компонент Burger
+mixin burger(label, targetId, switchableClass)
+
+  //- описание аргументов функции
+    label            - описание, значение атрибута aria-label [string]
+    targetId         - атрибут id целевого элемента (без символа #), на котором по клику будет меняться класс [string]
+    switchableClass  - ширина изображение [string]
+
+  -
+    var className = 'burger'
+
+    label = label || 'Toggle block ' + targetId
+    if (typeof targetId  !== 'undefined' && targetId !== '')
+      attributes['data-target-id'] = targetId
+    if (typeof switchableClass !== 'undefined' && switchableClass !== '')
+      attributes['data-target-class-toggle'] = switchableClass
+
+  button(class=className)&attributes(attributes)
+    span= label

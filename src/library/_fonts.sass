@@ -1,0 +1,23 @@
+@import "variables.sass"
+@import "mixins/fonts-mixins.sass"
+
+/*
+ Thin       - 100
+ ExtraLight - 200
+ Light      - 300
+ Regular    - 400
+ SemiBold   - 600
+ Bold       - 700
+ ExtraBold  - 800
+ Black      - 900
+ */
+
+// OpenSans
+@include fontFace($font-main, 'Light', 300)
+@include fontFace($font-main, 'Regular', 400)
+@include fontFace($font-main, 'SemiBold', 600)
+@include fontFace($font-main, 'Bold', 700)
+@include fontFace($font-main, 'ExtraBold', 800)
+
+// SegoeUI
+@include fontFace($font-title, 'Black', 900)

@@ -1,0 +1,32 @@
+//- Стили компонента Button
+@import "../../library/variables.sass"
+@import "../../library/mixins.sass"
+
+.button
+  $component: & // #{component}__element
+  font-family: $font-family
+  border: 2px solid transparent
+  margin: 0
+  padding: 16px 10px 15px
+  background: none
+  cursor: pointer
+  text-decoration: none
+  text-transform: none
+  white-space: nowrap
+  text-overflow: ellipsis
+  user-select: none
+  min-width: 220px
+
+  &--btn-transparent
+    border-color: $color-orange
+    text-transform: uppercase
+    color: $color-orange
+
+  &--btn-orange
+    background-color: $color-orange
+    text-transform: uppercase
+    color: $color-white
+
+  &--lnk-underline
+
+  &--lnk-phone

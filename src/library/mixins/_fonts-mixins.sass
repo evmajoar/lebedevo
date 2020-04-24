@@ -1,0 +1,13 @@
+@import "../variables.sass"
+
+@mixin fontFace($name, $weightName, $weight, $style: normal)
+  @font-face
+    src: url('#{$font-dir}#{$name}/#{$name}-#{$weightName}.woff2') format('woff2'),
+    url('#{$font-dir}#{$name}/#{$name}-#{$weightName}.woff') format('woff')
+    font-family: $name
+    font-display: swap
+    font-style: $style
+    font-weight: $weight
+
+@mixin calcREM($number)
+  font-size: ($number/$font-base)#{rem}

@@ -1,0 +1,8 @@
+@import "../variables.sass"
+
+@mixin gridRow($column, $screen, $gap)
+  grid-template-columns: repeat($column, ($screen / $column) - $gap)
+  grid-column-gap: $gap
+
+@mixin gridColumn($startCol, $endCol)
+  grid-column: #{$startCol} / #{$endCol}

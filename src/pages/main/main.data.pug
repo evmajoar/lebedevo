@@ -1,0 +1,14 @@
+-
+  //- Настройки
+  var meta = {
+    title: 'Главная страница',
+    description: 'Описание сайта',
+    keywords: 'Ключевые слова через запятую',
+    siteURN: 'main.html'
+  }
+
+  //- Деструктурируем объект
+  var { title, description, keywords, siteURN } = meta
+
+  //- Получаем имя файлов css и js
+  var fileName = siteURN.replace( '.html', '' ) + '.min';

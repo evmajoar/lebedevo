@@ -1,0 +1,12 @@
+//- Стили компонента MainHeader
+@import "../../library/variables.sass"
+@import "../../library/mixins.sass"
+
+.main-header
+  $component: & // #{component}__element
+
+  &__content
+    &-wrapper
+      @include gridColumn(1, -1)
+      @include breakPoint(xl)
+        @include gridColumn(4, 10)

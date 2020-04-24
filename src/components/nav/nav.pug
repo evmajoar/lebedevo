@@ -1,0 +1,26 @@
+//- Компонент Nav
+mixin nav(tag, isMain, mods)
+
+  -
+    //- класс блока
+    var className = 'main-nav';
+
+    //- список модификаторов
+    var allMods = '';
+    if (typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods += ' ' + className + '--' + modsList[i].trim();
+      }
+    }
+
+  include nav.data.pug
+  include ../burger/burger.pug
+
+  #{tag}(class=className + allMods)
+    if(isMain)
+      +burger('Меню', 'main-nav', 'main-nav--open')
+    ul(class=className + '__list')
+      each navItem in navData
+        li(class=className + '__item')
+          a(class=className + '__link')(href=navItem.href)= navItem.title
