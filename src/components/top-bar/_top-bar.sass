@@ -1,0 +1,8 @@
+@import "../../library/variables.sass"
+@import "../../library/mixins.sass"
+
+.top-bar
+  @include gridContainer('equal', 2, $screen-xs, true, false)
+
+  @include breakPoint(xl)
+    @include gridContainer('maxToMin', $grid-columns, $screen-xl)

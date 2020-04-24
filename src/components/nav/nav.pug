@@ -1,11 +1,8 @@
-//- Компонент Nav
-mixin nav(tag, isMain, mods)
+mixin nav(tag, isMainNav, mods)
 
   -
-    //- класс блока
-    var className = 'main-nav';
+    var className = 'nav';
 
-    //- список модификаторов
     var allMods = '';
     if (typeof(mods) !== 'undefined' && mods) {
       var modsList = mods.split(',');
@@ -18,8 +15,8 @@ mixin nav(tag, isMain, mods)
   include ../burger/burger.pug
 
   #{tag}(class=className + allMods)
-    if(isMain)
-      +burger('Меню', 'main-nav', 'main-nav--open')
+    if(isMainNav)
+      +burger('Меню', 'nav', 'nav--open')
     ul(class=className + '__list')
       each navItem in navData
         li(class=className + '__item')

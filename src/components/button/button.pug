@@ -1,10 +1,12 @@
 mixin button(title, mods)
 
+  //- описание аргументов функции
+    title - имя [string]
+    mods  - модификаторы (через запятую) [string]
+
   -
-    //- класс блока
     var className = 'button';
 
-    //- список модификаторов
     var allMods = '';
     if (typeof(mods) !== 'undefined' && mods) {
       var modsList = mods.split(',');

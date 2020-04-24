@@ -1,8 +1,52 @@
 @import "../variables.sass"
 
-@mixin gridRow($column, $screen, $gap)
-  grid-template-columns: repeat($column, ($screen / $column) - $gap)
-  grid-column-gap: $gap
+@mixin gridContainer($format, $columnCount, $screenWidth: null, $padding: false, $gap: $grid-gutter-width)
 
-@mixin gridColumn($startCol, $endCol)
-  grid-column: #{$startCol} / #{$endCol}
+  //- описание аргументов функции
+    $format      - формат отзывчивости [string] ('auto-fill', 'auto-fit', 'equal', 'minToMax', 'maxToMin')
+    $columnCount - количество колонок [number]
+    $screenWidth - ширина экрана [string]
+    $gap         - расстояние между колонками [string]
+
+  $columnWidth: null
+
+  //- Если $padding is true
+  @if $padding != false
+    padding: 0 $grid-gutter-width / 2
+    $columnWidth: $screenWidth / $columnCount - $grid-gutter-width
+
+  //- Если $gap is true
+  @if $gap != false
+    grid-column-gap: $gap
+    $columnWidth: $screenWidth / $columnCount - $gap
+  @else
+    $columnWidth: $screenWidth / $columnCount
+
+  //- Формат отзывчивости
+  @if $format == 'auto-fill'
+    grid-template-columns: repeat($format, minmax($columnWidth, 1fr))
+  @else if $format == 'auto-fit'
+    grid-template-columns: repeat($format, minmax($columnWidth, 1fr))
+  @else if $format == 'equal'
+    grid-template-columns: repeat($columnCount, (100% / $columnCount))
+  @else if $format == 'minToMax'
+    grid-template-columns: repeat($columnCount, minmax($columnWidth, auto))
+  @else if $format == 'maxToMin'
+    grid-template-columns: repeat($columnCount, minmax(auto, $columnWidth))
+
+  //- Ширина контейнера в зависиомсти от ширины экрана
+  @if ($screenWidth == $screen-xs) or ($screenWidth == $screen-sm)
+    min-width: $container-sm
+  @else if $screenWidth == $screen-md
+    min-width: $container-md
+  @else if $screenWidth == $screen-lg
+    min-width: $container-lg
+  @else if $screenWidth == $screen-lg
+    min-width: $container-lg
+
+  display: grid
+  margin: 0 auto
+  @content
+
+@mixin gridColumn($startPos, $endPos)
+  grid-column: #{$startPos} / #{$endPos}

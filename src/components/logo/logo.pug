@@ -1,19 +1,15 @@
-//- Компонент Logo.
-
 mixin logo(imgName, imgExt, imgWidth, imgHeight, mods)
 
   //- описание аргументов функции
-    imgName   - имя файла с изображением : string
-    imgExt    - расширение файла : string
-    imgWidth  - ширина изображение : number
-    imgHeight - высота изображение : number
-    mods      - модификаторы (через запятую) : string
+    imgName   - имя файла с изображением [string]
+    imgExt    - расширение файла [string]
+    imgWidth  - ширина изображение [number]
+    imgHeight - высота изображение [number]
+    mods      - модификаторы (через запятую) [string]
 
   -
-    //- класс блока
     var className = 'logo';
 
-    //- список модификаторов
     var allMods = '';
     if (typeof(mods) !== 'undefined' && mods) {
       var modsList = mods.split(',');

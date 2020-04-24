@@ -1,4 +1,3 @@
-//- Главная страница
 extends ../../layout/layout.pug
 
 block meta
@@ -36,13 +35,13 @@ include ../../components/logo/logo.pug
 include ../../components/nav/nav.pug
 
 block header
-  .top-bar.grid-container
+  .top-bar
     +logo('logo-green', 'png', 69, 50, 'green')
     +nav('nav', true)
     p.top-bar__contacts
       +button('+375(29) 675-78-56', 'lnk-phone')(href='tel:+375296757856')
       +button('заказать звонок', 'lnk-underline')(href='#')
-  .main-header__content.grid-container
+  .main-header__content
     .main-header__content-wrapper
       +logo('logo-white', 'png', 152, 111, 'white')
       h1.main-header__content-title Коттеджный поселок Лебедево
