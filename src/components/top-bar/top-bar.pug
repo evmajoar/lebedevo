@@ -1,0 +1,12 @@
+mixin top-bar()
+
+  - var className = 'top-bar'
+
+  div(class=className)
+    div(class=className + '__container')
+      +logo('logo-green', 'png', 69, 50, 'green, blue')(class=className + '__logo')
+      +nav('nav', true)(class=className + '__nav')
+      p(class=className + '__contacts')
+        +button('+375(29) 675-78-56', 'lnk, lnk-phone')(class=className + '__contacts-link', href='tel:+375296757856')
+          <svg width="15" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0)"><path d="M14.792 12.79l-2.115 2.099c-.312.32-.726.428-1.13.429-1.781-.053-3.466-.929-4.849-1.828-2.27-1.651-4.353-3.7-5.66-6.174C.535 6.278-.053 4.954.003 3.796c.005-.436.122-.864.43-1.145L2.547.537c.439-.373.864-.244 1.145.191l1.701 3.226a.937.937 0 01-.19 1.065l-.78.779a.383.383 0 00-.08.223c.3 1.156 1.205 2.222 2.004 2.956.8.733 1.66 1.727 2.775 1.962.138.039.307.052.405-.04l.907-.921c.312-.237.763-.353 1.097-.16h.016l3.069 1.813c.45.282.497.828.175 1.16z"/></g><defs><clipPath id="clip0"><path d="M0 .318h15v15H0z"/></clipPath></defs></svg>
+        +button('заказать звонок', 'lnk, lnk-underline')(class=className + '__contacts-button')

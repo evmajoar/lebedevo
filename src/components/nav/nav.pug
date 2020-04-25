@@ -14,10 +14,11 @@ mixin nav(tag, isMainNav, mods)
   include nav.data.pug
   include ../burger/burger.pug
 
-  #{tag}(class=className + allMods)
+  #{tag}(class=className + allMods)&attributes(attributes)
     if(isMainNav)
-      +burger('Меню', 'nav', 'nav--open')
-    ul(class=className + '__list')
-      each navItem in navData
-        li(class=className + '__item')
-          a(class=className + '__link')(href=navItem.href)= navItem.title
+      +burger('Меню', 'nav', 'nav--open')(class='top-bar__burger')
+    div(class=className + '__wrapper')
+      ul(class=className + '__list')
+        each navItem in navData
+          li(class=className + '__item')
+            +button(navItem.title, 'lnk-underline')(class=className + '__link', href=navItem.href)

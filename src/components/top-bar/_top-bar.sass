@@ -2,7 +2,75 @@
 @import "../../library/mixins.sass"
 
 .top-bar
-  @include gridContainer('equal', 2, $screen-xs, true, false)
+  position: relative
+  z-index: 4
 
-  @include breakPoint(xl)
-    @include gridContainer('maxToMin', $grid-columns, $screen-xl)
+  @include breakPoint(md)
+    background-color: transparentize($color-white, .1)
+
+  &__container
+    display: grid
+    grid-template-columns: repeat(2, 50%)
+    padding: 10px $grid-gutter-width / 2
+    margin: 0 auto
+    position: relative
+    z-index: 4
+
+    @include breakPoint(md)
+      @include gridMD()
+      align-items: center
+
+    @include breakPoint(xl)
+      @include gridXL()
+      padding-top: 11px
+      padding-bottom: 14px
+
+  &__logo
+    order: -1
+    grid-column: 1 / 3
+
+  &__nav
+    order: 2
+
+    @include breakPoint(md)
+      grid-column: 3 / 10
+      margin: 0 auto
+
+  &__burger
+    margin-left: auto
+
+  &__contacts
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    order: 1
+    padding: 0
+    margin: 0
+
+    @include breakPoint(md)
+      order: 3
+      grid-column: 10 / -1
+      margin-left: auto
+
+    &-link,
+    &-button
+      color: $color-white
+      @include calcRem(13)
+
+      @include breakPoint(md)
+        color: $color-black
+
+      @include breakPoint(xl)
+        @include calcRem(16)
+
+    &-button
+      margin-left: 24px
+
+      svg
+        fill: $color-white
+
+        @include breakPoint(md)
+          fill: $color-black
+
+      @include breakPoint(md)
+        color: $color-green

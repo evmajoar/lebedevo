@@ -103,9 +103,9 @@ a
   background-color: transparent
   transition: color .3s
 
-  &:hover,
-  &:focus
-    color: $link-color--hover
+  //&:hover,
+  //&:focus
+  //  color: $link-color--hover
 
   // &:visited
   //   color: $link-color--hover
@@ -114,7 +114,7 @@ a
   &[href^='tel:']
 
     // На больших экранах телефоны-ссылки делаем обычным текстом
-    @media (min-width: $screen-xl)
+    @include breakPoint(xl)
       white-space: nowrap
       pointer-events: none
       text-decoration: inherit
@@ -197,7 +197,7 @@ dt
 dd
   margin-left: 0
 
-  @media (min-width: $screen-sm)
+  @include breakPoint(xl)
     margin-left: 1.5rem
 
   & + dt
@@ -211,7 +211,7 @@ sup
   font-size: $font-size-sm
 
 mark
-  background: rgba( $color-warning, .3 )
+  background: rgba($color-warning, .3)
   padding: .1em .3em
 
 b,
@@ -235,7 +235,7 @@ pre
 code
   padding: 0.06em 0.3em
   color: $text-color
-  background-color: rgba( $black, .08 )
+  background-color: rgba($black, .08)
   border-radius: $border-radius
 
 kbd
@@ -253,7 +253,7 @@ pre
   margin-bottom: $typo-margin-vertical
   overflow-x: auto
   tab-size: 2
-  background-color: rgba( $black, .08 )
+  background-color: rgba($black, .08)
 
   code
     background: transparent

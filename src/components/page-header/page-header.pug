@@ -1,0 +1,16 @@
+mixin page-header()
+
+  - var className = 'page-header'
+
+  +top-bar()
+  div(class=className + '__content')
+    div(class=className + '__content-wrapper')
+      +logo('logo-white', 'png', 152, 111, 'white')(class=className + '__content-logo')
+      h1(class=className + '__content-title') Коттеджный поселок Лебедево
+      p.page-header__content-description
+        strong Место, в котором #[br] хочется жить
+        | Постройте свой идеальный загородный дом #[br] и наслаждайтесь тихой размеренной жизнью на природе
+      p.page-header__content-buttons
+        +button('Записаться на экскурсию', 'btn, btn-transparent')(class='page-header__content-button')
+        +button('Оставить заявку', 'btn, btn-orange')(class='page-header__content-button')
+  +overlay()

@@ -1,0 +1,122 @@
+@import "../../library/variables.sass"
+@import "../../library/mixins.sass"
+
+.page-header
+  $component: & // #{component}__element
+  background: #171717 url("#{$imageDir}bg-header.jpg") 60% 0 / cover no-repeat
+  position: relative
+
+  @include breakPoint(md)
+    background-position-x: 47%
+
+  @include breakPoint(xl)
+    background-position-x: 50%
+
+  &__content
+    display: grid
+    grid-template-columns: 1fr
+    padding: 90px $grid-gutter-width / 2 26px
+    margin: 0 auto
+    position: relative
+    z-index: 3
+
+    @include breakPoint(md)
+      @include gridMD()
+      align-items: center
+      padding-top: 25px
+      padding-bottom: 90px
+
+    @include breakPoint(xl)
+      @include gridXL()
+      padding-top: 45px
+      padding-bottom: 157px
+
+    &-wrapper
+      display: flex
+      flex-direction: column
+      align-items: center
+      text-align: center
+      color: $color-white
+      grid-column: 1 / -1
+
+      @include breakPoint(md)
+        grid-column: 3 / 11
+
+      @include breakPoint(xl)
+        grid-column: 4 / 10
+
+    &-logo
+      margin-bottom: 20px
+
+      @include breakPoint(md)
+        margin-bottom: 0
+
+      img
+        width: 80px
+        height: 58px
+
+        @include breakPoint(xl)
+          width: 152px
+          height: 111px
+
+    &-title
+      @include calcRem(13)
+      font-weight: 600
+      color: $color-orange
+
+      @include breakPoint(md)
+        @include calcRem(15)
+
+      @include breakPoint(xl)
+        @include calcRem(20)
+
+    &-description
+      @include calcRem(10)
+      line-height: 1.45
+      margin-bottom: 110px
+
+      @include breakPoint(md)
+        @include calcRem(13)
+        margin-bottom: 18px
+
+      @include breakPoint(xl)
+        @include calcRem(16)
+        margin-bottom: 37px
+
+      strong
+        display: block
+        font-family: $font-family-title
+        @include calcRem(25)
+        line-height: 1.12
+        text-transform: uppercase
+        margin-bottom: 24px
+
+        @include breakPoint(md)
+          @include calcRem(30)
+          margin-bottom: 8px
+
+        @include breakPoint(xl)
+          @include calcRem(50)
+          margin-bottom: 25px
+
+    &-buttons
+      display: flex
+      flex-direction: column
+      align-items: center
+
+      @include breakPoint(md)
+        flex-direction: row
+
+    &-button
+      margin-bottom: 18px
+
+      @include breakPoint(md)
+        margin-bottom: 0
+        margin-right: 24px
+
+      &:last-child
+        margin-bottom: 0
+
+        @include breakPoint(md)
+          margin-right: 0
+

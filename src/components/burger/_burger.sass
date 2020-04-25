@@ -7,15 +7,15 @@
   align-items: center
   justify-content: center
   position: relative
-  width: 24px
+  width: 28px
   border: none
   padding: 0
-  line-height: 24px
-  height: 24px
+  line-height: 20px
+  height: 20px
   background: transparent
   user-select: none
   cursor: pointer
-  z-index: 11
+  z-index: 6
 
   @include breakPoint(md)
     display: none
@@ -24,12 +24,12 @@
     display: inline-block
     position: relative
     width: 100%
-    height: 1px
+    height: 2px
     vertical-align: middle
     font-size: 0
     color: transparent
-    background-color: $gray
-    //transition: background $transition-time $transition-time
+    background-color: $color-white
+    transition: background $transition-time $transition-time
 
     &:before,
     &:after
@@ -37,10 +37,10 @@
       position: absolute
       left: 0
       width: 100%
-      height: 1px
-      background-color: $gray
+      height: 2px
+      background-color: $color-white
       transform-origin: 50% 50%
-      //transition: top $transition-time $transition-time, transform $transition-time
+      transition: top $transition-time $transition-time, transform $transition-time
 
     &:before
       top: -8px
@@ -50,13 +50,13 @@
 
   &--open
     > span
-      //transition: background $transition-time 0s
+      transition: background $transition-time 0s
       background: transparent
 
       &:before,
       &:after
         top: 0
-        //transition: top $transition-time, transform $transition-time $transition-time
+        transition: top $transition-time, transform $transition-time $transition-time
 
       &:before
         transform: rotate3d(0, 0, 1, 45deg)

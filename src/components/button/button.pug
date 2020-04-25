@@ -18,6 +18,8 @@ mixin button(title, mods)
   if(attributes.href)
     a(class=className + allMods)&attributes(attributes)
       span= title
+      block
   else
     button(class=className + allMods)&attributes(attributes)
       span= title
+      block

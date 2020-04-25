@@ -1,0 +1,18 @@
+mixin overlay(mods)
+
+  //- описание аргументов функции
+    mods      - модификаторы (через запятую) [string]
+
+  -
+    var className = 'overlay';
+
+    var allMods = '';
+    if (typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods += ' ' + className + '--' + modsList[i].trim();
+      }
+    }
+
+  div(class=className + allMods)
+    block

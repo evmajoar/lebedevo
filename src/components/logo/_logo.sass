@@ -6,9 +6,14 @@
 
   &--green
     display: none
+
     @include breakPoint(md)
       display: block
 
     img
-      width: 69px
-      height: 50px  
+      width: 52px
+      height: 44px
+
+      @include breakPoint(xl)
+        width: 69px
+        height: 50px

@@ -1,5 +1,12 @@
 extends ../../layout/layout.pug
 
+include ../../components/button/button.pug
+include ../../components/logo/logo.pug
+include ../../components/nav/nav.pug
+include ../../components/overlay/overlay.pug
+include ../../components/top-bar/top-bar.pug
+include ../../components/page-header/page-header.pug
+
 block meta
 
   include main.data.pug
@@ -31,26 +38,8 @@ block append head
   link(rel='canonical' href=siteURL + siteURN)
   link(rel='stylesheet' href='styles/' + fileName + '.css')
 
-include ../../components/logo/logo.pug
-include ../../components/nav/nav.pug
-
 block header
-  .top-bar
-    +logo('logo-green', 'png', 69, 50, 'green')
-    +nav('nav', true)
-    p.top-bar__contacts
-      +button('+375(29) 675-78-56', 'lnk-phone')(href='tel:+375296757856')
-      +button('заказать звонок', 'lnk-underline')(href='#')
-  .main-header__content
-    .main-header__content-wrapper
-      +logo('logo-white', 'png', 152, 111, 'white')
-      h1.main-header__content-title Коттеджный поселок Лебедево
-      p.main-header__content-description
-        strong Место, в котором хочется жить
-        | постройте свой загородный дом и наслаждайтесь настоящей жизнью на природе
-      p.main-header__content-buttons
-        +button('Записаться на экскурсию', 'btn-transparent')
-        +button('Оставить заявку', 'btn-orange')
+  +page-header()
 
 block content
 

@@ -3,10 +3,10 @@
 
 .button
   $component: & // #{component}__element
+  display: inline-flex
+  align-items: flex-start
   font-family: $font-family
-  border: 2px solid transparent
   margin: 0
-  padding: 16px 10px 15px
   background: none
   cursor: pointer
   text-decoration: none
@@ -14,12 +14,41 @@
   white-space: nowrap
   text-overflow: ellipsis
   user-select: none
-  min-width: 220px
+  transition: all $transition-time
+
+  &--btn
+    @include calcRem(13)
+    font-weight: 600
+    align-items: center
+    justify-content: center
+    text-align: center
+    padding: 16px 10px
+    border: 2px solid transparent
+    min-width: 220px
+
+    @include breakPoint(md)
+      @include calcRem(8)
+      padding: 10px 7px
+      min-width: 132px
+
+    @include breakPoint(xl)
+      @include calcRem(13)
+      padding: 16px 10px
+      min-width: 220px
+
+  &--lnk
+    background: none
+    border: 0
+    padding: 0
 
   &--btn-transparent
     border-color: $color-orange
     text-transform: uppercase
     color: $color-orange
+
+    &:active
+      background-color: $color-orange
+      color: $color-white
 
   &--btn-orange
     background-color: $color-orange
@@ -27,7 +56,16 @@
     color: $color-white
 
   &--lnk-underline
-    padding: 0
+    text-decoration: underline
+
+    &:active
+      text-decoration: none
 
   &--lnk-phone
-    padding: 0
+    align-items: center
+
+    span
+      padding-left: 8px
+
+    svg
+      order: -1
