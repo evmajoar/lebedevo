@@ -8,6 +8,7 @@
   @include breakPoint(md)
     background-color: transparentize($color-white, .1)
 
+
   &__container
     display: grid
     grid-template-columns: repeat(2, 50%)
@@ -25,9 +26,11 @@
       padding-top: 11px
       padding-bottom: 14px
 
+
   &__logo
     order: -1
     grid-column: 1 / 3
+
 
   &__nav
     order: 2
@@ -36,8 +39,10 @@
       grid-column: 3 / 10
       margin: 0 auto
 
+
   &__burger
     margin-left: auto
+
 
   &__contacts
     display: flex
@@ -52,6 +57,7 @@
       grid-column: 10 / -1
       margin-left: auto
 
+
     &-link,
     &-button
       color: $color-white
@@ -62,6 +68,7 @@
 
       @include breakPoint(xl)
         @include calcRem(16)
+
 
     &-button
       margin-left: 24px

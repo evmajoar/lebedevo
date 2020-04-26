@@ -4,7 +4,9 @@
 .nav
   $component: & // #{component}__element
 
+
   &__wrapper
+    animation: slideDown $transition-time
     display: none
     background-color: #95BB7E
     position: absolute
@@ -24,6 +26,7 @@
       padding: 0
       background-color: transparent
 
+
   &__list
     display: flex
     flex-direction: column
@@ -38,6 +41,7 @@
       flex-direction: row
       overflow: visible
       height: auto
+
 
   &__item
     margin-bottom: 25px
@@ -54,6 +58,7 @@
       @include breakPoint(md)
         margin-right: 0
 
+
   &__link
     color: $color-white
     @include calcRem(30)
@@ -68,6 +73,27 @@
 
     @include breakPoint(xl)
       @include calcRem(12)
+      overflow: hidden
+      position: relative
+
+    &::before
+      @include breakPoint(xl)
+        content: ''
+        position: absolute
+        top: calc(50% - 2px)
+        left: -100%
+        width: 100%
+        height: 4px
+        background: $color-orange
+        transition: all $transition-time
+
+    &:hover
+      @include breakPoint(xl)
+        color: $color-white
+
+        &::before
+          animation: mainNav $transition-time linear forwards
+
 
   &--open
     #{$component}__wrapper

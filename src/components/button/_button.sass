@@ -16,6 +16,7 @@
   user-select: none
   transition: all $transition-time
 
+
   &--btn
     @include calcRem(13)
     font-weight: 600
@@ -36,30 +37,77 @@
       padding: 16px 10px
       min-width: 220px
 
+
   &--lnk
     background: none
     border: 0
     padding: 0
 
+
   &--btn-transparent
     border-color: $color-orange
     text-transform: uppercase
     color: $color-orange
+    overflow: hidden
+    position: relative
 
     &:active
       background-color: $color-orange
       color: $color-white
+
+    &:before
+      @include breakPoint(xl)
+        position: absolute
+        content: ''
+        width: 0
+        height: 100%
+        background: $color-orange
+        top: 0
+        left: auto
+        right: 0
+        z-index: -1
+        transition: all $transition-time
+
+    &:hover
+      @include breakPoint(xl)
+        color: white
+        &:before
+          content: ''
+          position: absolute
+          width: 100%
+          height: 100%
+          background: $color-orange
+          top: 0
+          left: 0
+          right: 0
+          z-index: -1
+
 
   &--btn-orange
     background-color: $color-orange
     text-transform: uppercase
     color: $color-white
 
+    &:active
+      background-color: $color-green
+      color: $color-white
+
+    &:hover
+      @include breakPoint(xl)
+        color: white
+        background-color: $color-green
+
+
   &--lnk-underline
     text-decoration: underline
 
     &:active
       text-decoration: none
+
+    &:hover
+      @include breakPoint(xl)
+        text-decoration: none
+
 
   &--lnk-phone
     align-items: center
