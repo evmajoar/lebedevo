@@ -6,12 +6,13 @@ include ../../components/nav/nav.pug
 include ../../components/overlay/overlay.pug
 include ../../components/top-bar/top-bar.pug
 include ../../components/page-header/page-header.pug
+include ../../components/advantages/advantages.pug
+include ../../components/history/history.pug
 
 block meta
 
   include main.data.pug
 
-  title=title + ' | ' + siteName
   meta(name='description', content=description)
   meta(name='keywords', content=keywords)
 
@@ -42,6 +43,8 @@ block header
   +page-header()
 
 block content
+  +advantages()
+  +history()
 
 block footer
 

@@ -5,6 +5,7 @@ $('.burger').on('click',function() {
   const targetClassToggle = that.data('target-class-toggle');
 
   if (targetId && targetClassToggle) {
+    $('body').toggleClass('hidden');
     that.toggleClass('burger--open');
     $('.' + targetId).toggleClass(targetClassToggle);
   }

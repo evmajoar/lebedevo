@@ -1,0 +1,118 @@
+@import "../../library/variables.sass"
+@import "../../library/mixins.sass"
+
+.history
+  $component: & // #{component}__element
+
+
+  &__container
+    display: grid
+    grid-template-columns: 1fr
+    grid-column-gap: $grid-gutter-width
+    padding: 18px $grid-gutter-width / 2
+    margin: 0 auto
+
+    @include breakPoint(md)
+      padding-top: 25px
+      padding-bottom: 19px
+      @include gridMD()
+
+    @include breakPoint(xl)
+      padding-top: 73px
+      padding-bottom: 56px
+      @include gridXL()
+
+  &__title,
+  &__description,
+  &__figure,
+  p
+    margin: 0
+
+  &__info
+    @include breakPoint(md)
+      display: flex
+      align-items: center
+      grid-column: 1 / -1
+
+
+  &__title
+    @include calcRem(20)
+    font-weight: 700
+    text-transform: uppercase
+    margin-bottom: 5px
+
+    @include breakPoint(md)
+      position: relative
+      margin-bottom: 0
+      padding-right: 17px
+
+    @include breakPoint(xl)
+      @include calcRem(35)
+
+    &::before
+      @include breakPoint(md)
+        content: ''
+        position: absolute
+        top: calc(50% - 22px)
+        right: 0
+        height: 45px
+        width: 2px
+        background-color: $color-black
+
+      @include breakPoint(xl)
+        height: 76px
+        top: calc(50% - 38px)
+
+
+  &__description
+    @include calcRem(8)
+    font-weight: 300
+    line-height: 1.35
+
+    @include breakPoint(md)
+      padding-left: 13px
+
+    @include breakPoint(xl)
+      @include calcRem(14)
+      padding-left: 14px
+
+
+  &__content
+    @include breakPoint(md)
+      grid-column: 1 / -1
+      grid-row-start: 2
+      display: grid
+      @include gridMD()
+      margin-top: 45px
+
+    @include breakPoint(xl)
+      @include gridXL()
+      margin-top: 75px
+
+
+  &__figure
+    display: flex
+    justify-content: center
+    margin: 29px 0 35px
+
+    @include breakPoint(md)
+      margin: 0
+      margin-top: -80px
+      grid-column: 8 / -1
+
+    @include breakPoint(xl)
+      margin-top: -135px
+
+
+  &__text
+    @include calcRem(10)
+    line-height: 1.84
+    font-weight: 300
+
+    @include breakPoint(md)
+      grid-column: 1 / 8
+      order: -1
+
+    @include breakPoint(xl)
+      @include calcRem(18)
+      line-height: 1.5

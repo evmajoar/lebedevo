@@ -14,8 +14,10 @@
     left: 0
     width: 100%
     height: 100%
-    z-index: 5
+    z-index: 6
     padding: 100px $grid-gutter-width / 2
+    overflow-x: hidden
+    overflow-y: auto
     min-height: 100vh
 
     @include breakPoint(md)
@@ -33,13 +35,10 @@
     padding: 0
     margin: 0
     list-style: none
-    overflow-x: hidden
-    overflow-y: auto
     height: 100%
 
     @include breakPoint(md)
       flex-direction: row
-      overflow: visible
       height: auto
 
 

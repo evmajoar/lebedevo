@@ -21,9 +21,13 @@ body
   line-height: $line-height
   word-break: break-word
   margin: 0
+
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   -webkit-overflow-scrolling: touch
+
+  &.hidden
+    overflow: hidden
 
 [tabindex='-1']:focus
   outline: none !important
