@@ -2,7 +2,9 @@ mixin page-header()
 
   - var className = 'page-header'
 
-  +top-bar()
+  +bar('green', 'white')
+    +logo('logo-green', 'png', 69, 50, 'green')(class='bar__logo')
+    +nav('nav', true)(class='bar__nav')
   div(class=className + '__content')
     div(class=className + '__content-wrapper')
       +logo('logo-white', 'png', 152, 111, 'white')(class=className + '__content-logo')

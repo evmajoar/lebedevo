@@ -1,0 +1,122 @@
+@import "../../library/variables.sass"
+@import "../../library/mixins.sass"
+
+.map
+  $component: & // #{component}__element
+  display: flex
+  flex-direction: column
+  padding-top: 22px
+
+  @include breakPoint(md)
+    position: relative
+    overflow: hidden
+    padding-top: 27px
+
+  @include breakPoint(xl)
+    padding-top: 42px
+
+
+  &__box
+    height: 125px
+    z-index: 2
+    position: relative
+    background-color: #ebe9e5
+
+    @include breakPoint(md)
+      height: 327px
+
+    @include breakPoint(xl)
+      height: 557px
+
+    iframe
+      border: 0
+      width: 100%
+      height: 100%
+
+
+  &__container
+    order: -1
+    line-height: 1.35
+    padding: 18px ($grid-gutter-width / 2) 24px
+    background-color: #95BB7E
+    width: 100%
+
+    @include breakPoint(md)
+      position: absolute
+      top: 27px
+      left: 0
+      padding: 0
+      background: none
+      height: 100%
+      width: 100%
+
+    @include breakPoint(xl)
+      top: 42px
+
+
+  &__info
+    @include breakPoint(md)
+      display: grid
+      @include gridMD()
+      padding: 0 ($grid-gutter-width / 2)
+
+
+    @include breakPoint(xl)
+      @include gridXL()
+
+    &-wrapper
+      @include breakPoint(md)
+        padding: 18px 18px 23px
+        grid-column: 1 / 6
+        background-color: transparentize(#95BB7E, .1)
+        width: 90%
+        position: relative
+        z-index: 3
+
+      @include breakPoint(xl)
+        padding: 41px 18px 36px
+        grid-column: 2 / 6
+
+  &__title
+    @include calcRem(15)
+    font-weight: 600
+    margin: 0
+    margin-bottom: 15px
+
+    @include breakPoint(xl)
+      @include calcRem(18)
+
+
+  &__list
+    margin: 0
+    padding: 0
+    list-style: none
+
+
+  &__item
+    margin-bottom: 15px
+
+    &:last-child
+      margin-bottom: 0
+
+    strong
+      @include calcRem(9)
+      font-weight: 300
+      display: block
+      margin-bottom: 5px
+
+      @include breakPoint(md)
+        @include calcRem(10)
+
+      @include breakPoint(xl)
+        @include calcRem(14)
+
+    p,a
+      margin: 0
+      @include calcRem(10)
+
+      @include breakPoint(xl)
+        @include calcRem(16)
+
+    a
+      color: $color-black

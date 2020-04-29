@@ -19,8 +19,9 @@ body
   @include calcRem(16)
   font-family: $font-family
   line-height: $line-height
-  word-break: break-word
+  //word-break: break-word
   margin: 0
+  animation: show 2s
 
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
@@ -148,17 +149,17 @@ h6
   color: currentColor
 
 h1
-  font-size: $font-size-h1  
+  font-size: $font-size-h1
 h2
-  font-size: $font-size-h2  
+  font-size: $font-size-h2
 h3
-  font-size: $font-size-h3  
+  font-size: $font-size-h3
 h4
-  font-size: $font-size-h4  
+  font-size: $font-size-h4
 h5
-  font-size: $font-size-h5  
+  font-size: $font-size-h5
 h6
-  font-size: $font-size-h6  
+  font-size: $font-size-h6
 
 p,
 ul,
@@ -173,12 +174,12 @@ figure
   margin-bottom: $typo-margin-vertical
 
 p
-    // http://clagnut.com/blog/2395
-    hyphens: auto
-    hyphenate-limit-chars: 6 3 3
-    hyphenate-limit-lines: 2
-    hyphenate-limit-last: always
-    hyphenate-limit-zone: 8%
+  // http://clagnut.com/blog/2395
+  //hyphens: auto
+  hyphenate-limit-chars: 6 3 3
+  hyphenate-limit-lines: 2
+  hyphenate-limit-last: always
+  hyphenate-limit-zone: 8%
 
 address
   font-style: normal
@@ -262,4 +263,3 @@ pre
 
   code
     background: transparent
-

@@ -1,0 +1,84 @@
+@import "../../library/variables.sass"
+@import "../../library/mixins.sass"
+
+.page-footer
+  $component: & // #{component}__element
+  background-color: #525252
+
+
+  .bar
+    display: none
+
+    @include breakPoint(md)
+      display: grid
+      background: none
+
+
+  .bar__container
+    @include breakPoint(md)
+      align-items: start
+      padding-top: 20px
+      padding-bottom: 0
+
+    @include breakPoint(xl)
+      padding-top: 46px
+
+
+  &__logo
+    @include breakPoint(md)
+      order: 3
+      grid-column: 11 / -1
+      max-width: 71px
+      margin-left: auto
+
+    @include breakPoint(xl)
+      margin-top: -20px
+      max-width: 133px
+
+
+  &__nav
+    @include breakPoint(md)
+      grid-column: 3 / 11
+      justify-self: center
+
+      a
+        color: $color-white
+
+
+  .bar__contacts
+    @include breakPoint(md)
+      order: -1
+      margin-left: 0
+      grid-column: 1 / 3
+
+      a
+        color: $color-white
+
+
+  &__copy
+    $component: & // #{component}__element
+    padding: $grid-gutter-width / 2
+
+    @include breakPoint(md)
+      padding-top: 0
+      padding-bottom: 10px
+      margin-top: -11px
+
+    @include breakPoint(xl)
+      padding-bottom: 25px
+      margin-top: -15px
+
+
+  &__copy-about, &__copy-dev, &__copy-lnk
+    margin: 0
+    text-align: center
+    color: $color-white
+    font-weight: 300
+    @include calcRem(10)
+
+    @include breakPoint(xl)
+      @include calcRem(12)
+
+
+  &__copy-about
+    margin-bottom: 7px

@@ -1,7 +1,7 @@
 @import "../../library/variables.sass"
 @import "../../library/mixins.sass"
 
-.history
+.observation
   $component: & // #{component}__element
 
 
@@ -9,17 +9,17 @@
     display: grid
     grid-template-columns: 1fr
     grid-column-gap: $grid-gutter-width
-    padding: 18px $grid-gutter-width / 2
+    padding: 20px $grid-gutter-width / 2 22px
     margin: 0 auto
 
     @include breakPoint(md)
-      padding-top: 25px
-      padding-bottom: 19px
+      padding-top: 27px
+      padding-bottom: 27px
       @include gridMD()
 
     @include breakPoint(xl)
-      padding-top: 50px
-      padding-bottom: 56px
+      padding-top: 43px
+      padding-bottom: 42px
       @include gridXL()
 
 
@@ -31,6 +31,8 @@
 
 
   &__info
+    margin-bottom: 25px
+
     @include breakPoint(md)
       display: flex
       align-items: center
@@ -42,11 +44,6 @@
     font-weight: 700
     text-transform: uppercase
     margin-bottom: 5px
-
-    br
-      display: none
-      @include breakPoint(md)
-        display: block
 
     @include breakPoint(md)
       position: relative
@@ -90,42 +87,35 @@
       padding-left: 17px
 
 
-  &__content
+  &__video
+    background-color: #C4C4C4
+    height: 194px
+
     @include breakPoint(md)
-      grid-column: 1 / -1
       grid-row-start: 2
-      display: grid
-      @include gridMD()
-      margin-top: 45px
-
-    @include breakPoint(xl)
-      @include gridXL()
-      margin-top: 75px
-
-
-  &__figure
-    display: flex
-    justify-content: center
-    margin: 29px 0 35px
-
-    @include breakPoint(md)
-      margin: 0
-      margin-top: -80px
-      grid-column: 8 / -1
-
-    @include breakPoint(xl)
-      margin-top: -135px
-
-
-  &__text
-    @include calcRem(10)
-    line-height: 1.84
-    font-weight: 300
-
-    @include breakPoint(md)
       grid-column: 1 / 8
-      order: -1
+      height: 423px
 
     @include breakPoint(xl)
-      @include calcRem(18)
-      line-height: 1.5
+      grid-column: 2 / 9
+
+    iframe
+      border: 0
+      height: 100%
+      width: 100%
+
+
+  &__weather
+    display: none
+
+    @include breakPoint(md)
+      grid-row-start: 2
+      grid-column: 8 / -1
+      display: block
+      height: 423px
+
+    @include breakPoint(xl)
+      grid-column: 9 / 12
+
+    .eaw-detail-iconBlock
+      margin-left: -90px !important

@@ -1,7 +1,7 @@
 @import "../../library/variables.sass"
 @import "../../library/mixins.sass"
 
-.history
+.cards
   $component: & // #{component}__element
 
 
@@ -34,7 +34,7 @@
     @include breakPoint(md)
       display: flex
       align-items: center
-      grid-column: 1 / 8
+      grid-column: 1 / 10
 
 
   &__title
@@ -88,44 +88,3 @@
     @include breakPoint(xl)
       @include calcRem(14)
       padding-left: 17px
-
-
-  &__content
-    @include breakPoint(md)
-      grid-column: 1 / -1
-      grid-row-start: 2
-      display: grid
-      @include gridMD()
-      margin-top: 45px
-
-    @include breakPoint(xl)
-      @include gridXL()
-      margin-top: 75px
-
-
-  &__figure
-    display: flex
-    justify-content: center
-    margin: 29px 0 35px
-
-    @include breakPoint(md)
-      margin: 0
-      margin-top: -80px
-      grid-column: 8 / -1
-
-    @include breakPoint(xl)
-      margin-top: -135px
-
-
-  &__text
-    @include calcRem(10)
-    line-height: 1.84
-    font-weight: 300
-
-    @include breakPoint(md)
-      grid-column: 1 / 8
-      order: -1
-
-    @include breakPoint(xl)
-      @include calcRem(18)
-      line-height: 1.5

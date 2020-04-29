@@ -1,0 +1,24 @@
+mixin map()
+
+  - var className = 'map'
+
+  section(class=className)
+    div(class=className + '__box')
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d465273.97796395805!2d60.85899107470559!3d57.19934027942358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTfCsDExJzA3LjkiTiA2MMKwNDEnNDcuMSJF!5e0!3m2!1sru!2sua!4v1588115211315!5m2!1sru!2sua" width="600" height="450" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    div(class=className + '__container')
+      div(class=className + '__info')
+        div(class=className + '__info-wrapper')
+          h2(class=className + '__title') Коттеджный поселок #[br] “Лебедево”
+          ul(class=className + '__list')
+            li(class=className + '__item')
+              strong Адрес:
+              p Свердловская обл. верхнепышминский р-н, #[br] 35км от Екатеринбурга
+            li(class=className + '__item')
+              strong Контактное лицо:
+              p Фоминых Михаил Александрович
+            li(class=className + '__item')
+              strong Все интересующиие вас вопросы вы можете задать по телефону:
+              +button('+375(29) 675-78-56', 'lnk')(href='tel:+375296757856')
+            li(class=className + '__item')
+              strong или написать на почту:
+              +button('a_fm@mail.ru', 'lnk')(href='mailto:a_fm@mail.ru')

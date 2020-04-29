@@ -1,0 +1,12 @@
+mixin page-footer()
+
+  - var className = 'page-footer'
+
+  +bar('footer')
+    +logo('logo-white', 'png', 152, 111, 'white')(class=className + '__logo')
+    +nav('div', true)(class=className + '__nav')
+  div(class=className + '__copy')
+    p(class=className + '__copy-about') &copy; 2020. Все права защищены.
+    p(class=className + '__copy-dev')
+      | Дизайн и разработка:
+      +button('Senurable Web Factory', 'lnk, lnk-underline')(class=className + '__copy-lnk', href='//senurable.com', target='_blank', rel='nofollow noopener')

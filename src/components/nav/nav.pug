@@ -16,7 +16,7 @@ mixin nav(tag, isMainNav, mods)
 
   #{tag}(class=className + allMods)&attributes(attributes)
     if(isMainNav)
-      +burger('Меню', 'nav', 'nav--open')(class='top-bar__burger')
+      +burger('Меню', 'nav', 'nav--open')(class='bar__burger')
     div(class=className + '__wrapper')
       ul(class=className + '__list')
         each navItem in navData

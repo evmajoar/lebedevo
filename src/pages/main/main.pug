@@ -4,10 +4,15 @@ include ../../components/button/button.pug
 include ../../components/logo/logo.pug
 include ../../components/nav/nav.pug
 include ../../components/overlay/overlay.pug
-include ../../components/top-bar/top-bar.pug
+include ../../components/bar/bar.pug
 include ../../components/page-header/page-header.pug
 include ../../components/advantages/advantages.pug
 include ../../components/history/history.pug
+include ../../components/more/more.pug
+include ../../components/cards/cards.pug
+include ../../components/observation/observation.pug
+include ../../components/map/map.pug
+include ../../components/page-footer/page-footer.pug
 
 block meta
 
@@ -15,6 +20,7 @@ block meta
 
   meta(name='description', content=description)
   meta(name='keywords', content=keywords)
+  title= title + ' | ' + description
 
   //- Разметка Open Graph
     meta(property='og:title', content=title)
@@ -33,9 +39,15 @@ block meta
     meta(name='twitter:title', content=title)
     meta(name='twitter:description', content=description)
     meta(name='twitter:image', content=imagePath + 'poster.png')
-    meta(name='twitter:site', content=siteName)
+    meta(name='twitter:site', content=siteName)юм
 
 block append head
+  link( rel='dns-prefetch' href='https://www.google.com/' )
+  link( rel='preconnect' href='https://www.google.com/' )
+  link( rel='dns-prefetch' href='https://fls.kat-telecom.ru/' )
+  link( rel='preconnect' href='https://fls.kat-telecom.ru/' )
+  link( rel='dns-prefetch' href='https://apps.elfsight.com/' )
+  link( rel='preconnect' href='https://apps.elfsight.com/' )
   link(rel='canonical' href=siteURL + siteURN)
   link(rel='stylesheet' href='styles/' + fileName + '.css')
 
@@ -45,8 +57,14 @@ block header
 block content
   +advantages()
   +history()
+  +more()
+  //- +cards()
+  +observation()
+  +map()
 
 block footer
+  +page-footer()
 
 block append foot
+  <script src="https://apps.elfsight.com/p/platform.js" defer></script>
   script(src='scripts/' + fileName + '.js')

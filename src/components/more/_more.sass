@@ -1,7 +1,7 @@
 @import "../../library/variables.sass"
 @import "../../library/mixins.sass"
 
-.history
+.more
   $component: & // #{component}__element
 
 
@@ -13,14 +13,14 @@
     margin: 0 auto
 
     @include breakPoint(md)
+      @include gridMD()
       padding-top: 25px
       padding-bottom: 19px
-      @include gridMD()
 
     @include breakPoint(xl)
-      padding-top: 50px
-      padding-bottom: 56px
       @include gridXL()
+      padding-top: 50px
+      padding-bottom: 51px
 
 
   &__title,
@@ -90,42 +90,79 @@
       padding-left: 17px
 
 
-  &__content
+  &__list
+    padding: 0
+    list-style: none
+    display: grid
+    grid-template-columns: 1fr
+    grid-column-gap: $grid-gutter-width
+    margin: 15px auto 0
+
+    @media (min-width: $screen-sm)
+      grid-template-columns: repeat(2, minmax(auto, 50%))
+
     @include breakPoint(md)
-      grid-column: 1 / -1
-      grid-row-start: 2
-      display: grid
       @include gridMD()
-      margin-top: 45px
+      grid-column: 1 / -1
+      margin-top: 30px
 
     @include breakPoint(xl)
       @include gridXL()
-      margin-top: 75px
+      margin-top: 60px
 
 
-  &__figure
-    display: flex
-    justify-content: center
-    margin: 29px 0 35px
-
-    @include breakPoint(md)
-      margin: 0
-      margin-top: -80px
-      grid-column: 8 / -1
-
-    @include breakPoint(xl)
-      margin-top: -135px
-
-
-  &__text
-    @include calcRem(10)
-    line-height: 1.84
+  &__item
+    position: relative
+    padding-top: 100px
+    margin-bottom: 40px
+    text-align: center
+    @include calcRem(13)
+    line-height: 1.45
     font-weight: 300
 
     @include breakPoint(md)
-      grid-column: 1 / 8
-      order: -1
+      @include calcRem(10)
+      padding-top: 105px
+      margin-bottom: 0
 
     @include breakPoint(xl)
-      @include calcRem(18)
-      line-height: 1.5
+      @include calcRem(16)
+      padding-top: 110px
+
+    &::before
+      content: ''
+      position: absolute
+      top: 0
+      left: calc(50% - 45px)
+      width: 90px
+      height: 90px
+
+    &:first-child
+      @include breakPoint(md)
+        grid-column: 1 / 4
+
+      &::before
+        background: url("#{$imageDir}icons/icon-eco-green.png") center no-repeat
+
+    &:nth-child(2)
+      @include breakPoint(md)
+        grid-column: 4 / 7
+
+      &::before
+        background: url("#{$imageDir}icons/icon-home-green.png") center no-repeat
+
+    &:nth-child(3)
+      @include breakPoint(md)
+        grid-column: 7 / 10
+
+      &::before
+        background: url("#{$imageDir}icons/icon-forest-green.png") center no-repeat
+
+    &:last-child
+      margin-bottom: 0
+
+      @include breakPoint(md)
+        grid-column: 10 / -1
+
+      &::before
+        background: url("#{$imageDir}icons/icon-relax-green.png") center no-repeat

@@ -1,0 +1,14 @@
+mixin more()
+
+  - var className = 'more'
+
+  include more.data.pug
+
+  section(class=className)
+    div(class=className + '__container')
+      div(class=className + '__info')
+        h2(class=className + '__title') Кому подойдет #[br] наш поселок
+        p(class=className + '__description') чистый воздух, леса, поля, озера, тишина, #[br] ароматы трав и цветов. Это место просто #[br] создано для Вас, если...
+      ul(class=className + '__list')
+        each item in moreData
+          li(class=className + '__item')= item.text

@@ -44,7 +44,10 @@ exports.clearBuildDir = clearBuildDir;
 
 // Компиляция Pug
 function compilePug() {
-  return src([`${root.src}pages/**/*.pug`, `!${root.src}pages/**/*.data.pug`])
+  return src([
+    `${root.src}pages/**/*.pug`,
+    `!${root.src}pages/**/*.data.pug`
+  ])
     .pipe(
       plumber({
         errorHandler: notify.onError({
@@ -172,7 +175,6 @@ function serve() {
       `${root.src}layout/*.pug`,
       `${root.src}pages/**/*.pug`,
       `${root.src}components/**/*.pug`,
-      `${root.src}theme/icons/*.pug`,
     ],
     {
       events: ["all"],
@@ -198,7 +200,10 @@ function serve() {
 
   // Следим за изменениями в файлах .js
   watch(
-    [`${root.src}pages/**/*.js`, `${root.src}components/**/*.js`],
+    [
+      `${root.src}pages/**/*.js`,
+      `${root.src}components/**/*.js`
+    ],
     {
       events: ["all"],
       delay: 100,

@@ -1,0 +1,27 @@
+mixin cards()
+
+  - var className = 'cards'
+
+  include cards.data.pug
+
+  section(class=className)
+    div(class=className + '__container')
+      div(class=className + '__info')
+        h2(class=className + '__title') Выберите свой #[br] идеальный дом
+        p(class=className + '__description') мы предлагаем недвижимость на любой вкус, вы #[br] можете выбрать понравившийся вариант или мы #[br] построим дом по Вашему проекту
+      ul(class=className + '__list')
+        each item in cardsData
+          li(class=className + '__item')
+            figure(class=className + '__figure')
+              img(src=imagePath + item.imgName, title=item.title, alt=item.title)
+            h3(class=className + '__item-title')= item.title
+            table(class=className + '__table')
+              tr
+                td(class=className + '__cell') Площадь дома
+                td(class=className + '__cell')= item.areaHome
+              tr
+                td(class=className + '__cell') Площадь участка
+                td(class=className + '__cell') 20 сот
+              tr
+                td(class=className + '__cell') Цена
+                td(class=className + '__cell') от #{item.price} т. руб
