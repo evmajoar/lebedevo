@@ -202,10 +202,15 @@
         height: 8px
         background-color: #E5E5E5
         border-radius: 50%
+        transition: background-color .15s
 
         @include breakPoint(xl)
           width: 13px
           height: 13px
+
+      &:hover > span
+        @include breakPoint(xl)
+          background-color: $color-orange
 
 
     .swiper-pagination-bullet-active
@@ -229,3 +234,6 @@
 
     @include breakPoint(md)
       min-width: 132px
+
+    @include breakPoint(xl)
+      min-width: 230px
