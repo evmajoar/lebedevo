@@ -1,0 +1,231 @@
+@import "../../library/variables.sass"
+@import "../../library/mixins.sass"
+
+.gallery
+  $component: &
+  // #{component}__element
+
+  &__container
+    display: block
+    //grid-template-columns: 1fr
+    //grid-column-gap: $grid-gutter-width
+    padding: 16px $grid-gutter-width / 2 20px
+    margin: 0 auto
+
+    @include breakPoint(md)
+      display: grid
+      @include gridMD()
+      padding-top: 16px
+      padding-bottom: 27px
+
+    @include breakPoint(xl)
+      @include gridXL()
+      padding-top: 50px
+      padding-bottom: 51px
+
+
+  &__title,
+  &__description,
+  &__figure,
+  p
+    margin: 0
+
+
+  &__info
+    margin-bottom: 20px
+
+    @include breakPoint(md)
+      display: flex
+      align-items: center
+      grid-column-start: 1
+      margin-bottom: 37px
+
+    @include breakPoint(xl)
+      margin-bottom: 50px
+
+
+  &__content
+    @include breakPoint(md)
+      grid-column: 1 / -1
+
+
+  &__title
+    @include calcRem(20)
+    font-weight: 700
+    text-transform: uppercase
+    margin-bottom: 5px
+
+    @include breakPoint(md)
+      position: relative
+      margin-bottom: 0
+      padding-right: 17px
+      flex-shrink: 0
+
+    @include breakPoint(xl)
+      @include calcRem(35)
+      padding-right: 21px
+
+    &::before
+      @include breakPoint(md)
+        content: ''
+        position: absolute
+        top: calc(50% - 22px)
+        right: 0
+        height: 45px
+        width: 2px
+        background-color: $color-black
+
+      @include breakPoint(xl)
+        height: 76px
+        top: calc(50% - 38px)
+
+
+  &__description
+    @include calcRem(8)
+    font-weight: 300
+    line-height: 1.35
+
+    br
+      display: none
+      @include breakPoint(md)
+        display: block
+
+    @include breakPoint(md)
+      padding-left: 13px
+      flex-shrink: 0
+
+    @include breakPoint(xl)
+      @include calcRem(14)
+      padding-left: 17px
+
+
+  &__list,
+  &__pagination
+    list-style: none
+    margin: 0
+    padding: 0
+
+
+  &__list-wrapper
+    margin-bottom: 20px
+
+    @include breakPoint(md)
+      margin-bottom: 50px
+
+
+  &__list
+    margin-bottom: 20px
+
+    @include breakPoint(md)
+      padding-top: 20px
+      margin-bottom: 40px
+
+    @include breakPoint(xl)
+      margin-bottom: 56px
+
+
+  &__item
+    @include breakPoint(md)
+      position: relative
+      width: 236px
+      height: 149px
+
+    @include breakPoint(xl)
+      width: 387px
+      height: 244px
+
+    img
+      max-width: 95%
+      display: block
+      margin: 0 auto
+
+      @include breakPoint(md)
+        max-width: 100%
+        width: 100%
+        height: 100%
+
+
+  &__figure
+    @include breakPoint(md)
+      height: 100%
+      transition: all $transition-time
+
+
+  .swiper-slide-active
+    img
+      box-shadow: 0 0 7px rgba(0,0,0,.56)
+
+    .gallery__figure
+      @include breakPoint(md)
+        margin: 0
+        position: absolute
+        width: 320px
+        height: 176px
+        top: calc(50% - 88px)
+        left: calc(50% - 160px)
+        z-index: 5
+
+      @include breakPoint(xl)
+        width: 522px
+        height: 287px
+        top: calc(50% - 143px)
+        left: calc(50% - 261px)
+
+
+  &__pagination
+    display: flex
+    flex-flow: row wrap
+    align-items: center
+    justify-content: center
+
+    li
+      border-radius: 50%
+
+    .swiper-pagination-bullet
+      width: 12px
+      height: 12px
+      font-size: 0
+      display: flex
+      align-items: center
+      justify-content: center
+      margin: 0 1px 10px !important
+      opacity: 1
+      border: 0
+      background: none
+
+      @include breakPoint(xl)
+        width: 20px
+        height: 20px
+
+      span
+        width: 8px
+        height: 8px
+        background-color: #E5E5E5
+        border-radius: 50%
+
+        @include breakPoint(xl)
+          width: 13px
+          height: 13px
+
+
+    .swiper-pagination-bullet-active
+      span
+        background-color: $color-green
+        width: 12px
+        height: 12px
+
+        @include breakPoint(xl)
+          width: 20px
+          height: 20px
+
+
+  &__buttons
+    display: flex
+    justify-content: center
+
+
+  &__button
+    min-width: 290px
+
+    @include breakPoint(md)
+      min-width: 132px

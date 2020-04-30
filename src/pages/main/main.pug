@@ -10,6 +10,7 @@ include ../../components/advantages/advantages.pug
 include ../../components/history/history.pug
 include ../../components/more/more.pug
 include ../../components/cards/cards.pug
+include ../../components/gallery/gallery.pug
 include ../../components/observation/observation.pug
 include ../../components/map/map.pug
 include ../../components/page-footer/page-footer.pug
@@ -42,13 +43,21 @@ block meta
     meta(name='twitter:site', content=siteName)юм
 
 block append head
-  link( rel='dns-prefetch' href='https://www.google.com/' )
-  link( rel='preconnect' href='https://www.google.com/' )
-  link( rel='dns-prefetch' href='https://fls.kat-telecom.ru/' )
-  link( rel='preconnect' href='https://fls.kat-telecom.ru/' )
-  link( rel='dns-prefetch' href='https://apps.elfsight.com/' )
-  link( rel='preconnect' href='https://apps.elfsight.com/' )
+  link(rel='dns-prefetch' href='https://www.google.com/')
+  link(rel='dns-prefetch' href='https://maps.googleapis.com/')
+  link(rel='dns-prefetch' href='https://apps.elfsight.com/')
+  link(rel='dns-prefetch' href='https://fls.kat-telecom.ru/')
+  link(rel='preconnect' href='https://www.google.com/')
+  link(rel='preconnect' href='https://maps.googleapis.com/')
+  link(rel='preconnect' href='https://apps.elfsight.com/')
+  link(rel='preconnect' href='https://fls.kat-telecom.ru/')
+  link(rel='preload' href='/fonts/OpenSans/OpenSans-Light.woff2' as="font")
+  link(rel='preload' href='/fonts/OpenSans/OpenSans-Regular.woff2' as="font")
+  link(rel='preload' href='/fonts/OpenSans/OpenSans-SemiBold.woff2' as="font")
+  link(rel='preload' href='/fonts/OpenSans/OpenSans-SemiBold.woff2' as="font")
+  link(rel='preload' href='/fonts/OpenSans/OpenSans-Bold.woff2' as="font")
   link(rel='canonical' href=siteURL + siteURN)
+  link(rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css")
   link(rel='stylesheet' href='styles/' + fileName + '.css')
 
 block header
@@ -59,6 +68,7 @@ block content
   +history()
   +more()
   //- +cards()
+  +gallery()
   +observation()
   +map()
 
@@ -67,4 +77,5 @@ block footer
 
 block append foot
   <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+  script(src="//cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js")
   script(src='scripts/' + fileName + '.js')

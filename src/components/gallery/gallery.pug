@@ -1,0 +1,21 @@
+mixin gallery()
+
+  - var className = 'gallery'
+
+  include gallery.data.pug
+
+  section(class=className)
+    div(class=className + '__container')
+      div(class=className + '__info')
+        h2(class=className + '__title') Лучше один раз #[br] увидеть
+        p(class=className + '__description') Посмотрите реальные фотографии нашего поселка, #[br] а лучше запишитесь на экскурсию #[br] и увидите все сами
+      div(class=className + '__content')
+        div.swiper-container(class=className + '__list-wrapper')
+          ul.swiper-wrapper(class=className + '__list')
+            each item in galleryData
+              li.swiper-slide(class=className + '__item')
+                figure(class=className + '__figure')
+                  img(src=imagePath + 'gallery/' + item.imgName + '.jpg', title=item.title, alt=item.title)
+          ul( class=className + '__pagination' )
+        p(class=className + '__buttons')
+          +button('записаться на экскурсию', 'btn, btn-orange')(class=className + '__button')

@@ -36,7 +36,13 @@
     @include breakPoint(md)
       display: flex
       align-items: center
-      grid-column: 1 / 8
+      grid-column: 1 / 9
+      margin-bottom: 40px
+      max-width: 464px
+
+    @include breakPoint(xl)
+      margin-bottom: 67px
+      max-width: 694px
 
 
   &__title
@@ -49,6 +55,7 @@
       position: relative
       margin-bottom: 0
       padding-right: 17px
+      flex-shrink: 0
 
     @include breakPoint(xl)
       @include calcRem(35)
@@ -90,6 +97,17 @@
   &__video
     background-color: #C4C4C4
     height: 194px
+    position: relative
+    overflow: hidden
+
+    &::before
+      content: 'Загрузка видео...'
+      position: absolute
+      display: block
+      top: calc(50% - 10px)
+      left: calc(50% - 65px)
+      font-weight: 700
+      font-style: italic
 
     @include breakPoint(md)
       grid-row-start: 2
@@ -103,6 +121,42 @@
       border: 0
       height: 100%
       width: 100%
+      position: relative
+      z-index: 2
+
+    &-overlay
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      display: flex
+      align-items: center
+      justify-content: center
+      cursor: pointer
+      background-color: #0a1821
+      transition: top $transition-time
+      z-index: 3
+
+      svg
+        width: 50px
+        height: 50px
+
+        @include breakPoint(md)
+          width: 60px
+          height: 60px
+
+        @include breakPoint(xl)
+          width: 80px
+          height: 80px
+          transition: transform $transition-time
+
+      &:hover > svg
+        @include breakPoint(xl)
+          transform: scale(1.2)
+
+      &--slide-up
+        top: -100%
 
 
   &__weather

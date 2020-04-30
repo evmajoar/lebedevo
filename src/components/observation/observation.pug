@@ -3,12 +3,14 @@ mixin observation()
   - var className = 'observation'
 
   section(class=className)
-    section(class=className)
-      div(class=className + '__container')
-        div(class=className + '__info')
-          h2(class=className + '__title') Круглосуточное #[br] наблюдение
-          p(class=className + '__description') Нам важно Ваше спокойствие и безопасность. поэтому мы обеспечили посёлок системой круглосуточного видеонаблюдения
-        div(class=className + '__video')
-          <iframe src="https://fls.kat-telecom.ru/251/embed.html?dvr=false" width="640" height="480"></iframe>
-        div(class=className + '__weather')
-          <div class="elfsight-app-2040b944-b856-440e-90be-c49c8c661d26"></div>
+    div(class=className + '__container')
+      div(class=className + '__info')
+        h2(class=className + '__title') Круглосуточное #[br] наблюдение
+        p(class=className + '__description') Нам важно Ваше спокойствие и безопасность. поэтому мы обеспечили посёлок системой круглосуточного видеонаблюдения
+      div(class=className + '__video', data-src='https://fls.kat-telecom.ru/251/embed.html?dvr=false')
+        div(class=className + '__video-overlay')
+          <svg width="100" height="100" viewBox="0 0 100 100" fill="none">
+          <path d="M79.1406 45.4883L24.7656 13.125C24.1016 12.7344 23.418 12.5 22.6367 12.5C20.5078 12.5 18.7695 14.2578 18.7695 16.4062H18.75V83.5938H18.7695C18.7695 85.7422 20.5078 87.5 22.6367 87.5C23.4375 87.5 24.1016 87.2266 24.8242 86.8359L79.1406 54.5117C80.4297 53.4375 81.25 51.8164 81.25 50C81.25 48.1836 80.4297 46.582 79.1406 45.4883Z" fill="white"/>
+          </svg>
+        <iframe src="" width="640" height="480"></iframe>
+      div(class=className + '__weather')

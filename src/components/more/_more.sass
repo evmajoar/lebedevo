@@ -35,6 +35,10 @@
       display: flex
       align-items: center
       grid-column: 1 / 8
+      max-width: 375px
+
+    @include breakPoint(xl)
+      max-width: 660px
 
 
   &__title
@@ -43,15 +47,16 @@
     text-transform: uppercase
     margin-bottom: 5px
 
-    br
-      display: none
-      @include breakPoint(md)
-        display: block
+    //br
+    //  display: none
+    //  @include breakPoint(md)
+    //    display: block
 
     @include breakPoint(md)
       position: relative
       margin-bottom: 0
       padding-right: 17px
+      flex-shrink: 0
 
     @include breakPoint(xl)
       @include calcRem(35)
@@ -133,30 +138,42 @@
       content: ''
       position: absolute
       top: 0
-      left: calc(50% - 45px)
-      width: 90px
-      height: 90px
+      //width: 90px
+      //height: 90px
+      background: url("#{$imageDir}icons/sprite.png") center no-repeat
 
     &:first-child
       @include breakPoint(md)
         grid-column: 1 / 4
 
       &::before
-        background: url("#{$imageDir}icons/icon-eco-green.png") center no-repeat
+        background-position: -142px -5px
+        width: 57px
+        height: 49px
+        left: calc(50% - 28px)
+        top: 30px
 
     &:nth-child(2)
       @include breakPoint(md)
         grid-column: 4 / 7
 
       &::before
-        background: url("#{$imageDir}icons/icon-home-green.png") center no-repeat
+        width: 72px
+        height: 73px
+        background-position: -5px -142px
+        left: calc(50% - 36px)
+        top: 7px
 
     &:nth-child(3)
       @include breakPoint(md)
         grid-column: 7 / 10
 
       &::before
-        background: url("#{$imageDir}icons/icon-forest-green.png") center no-repeat
+        width: 80px
+        height: 86px
+        background-position: -5px -279px
+        left: calc(50% - 40px)
+        top: 2px
 
     &:last-child
       margin-bottom: 0
@@ -165,4 +182,8 @@
         grid-column: 10 / -1
 
       &::before
-        background: url("#{$imageDir}icons/icon-relax-green.png") center no-repeat
+        width: 69px
+        height: 72px
+        background-position: -95px -279px
+        left: calc(50% - 35px)
+        top: 10px

@@ -38,11 +38,14 @@
 
   &__nav
     @include breakPoint(md)
-      grid-column: 3 / 11
+      grid-column: 4 / 11
       justify-self: center
 
       a
         color: $color-white
+
+    @include breakPoint(xl)
+      grid-column: 3 / 11
 
 
   .bar__contacts
