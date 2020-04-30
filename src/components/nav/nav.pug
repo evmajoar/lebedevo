@@ -21,4 +21,4 @@ mixin nav(tag, isMainNav, mods)
       ul(class=className + '__list')
         each navItem in navData
           li(class=className + '__item')
-            +button(navItem.title, 'lnk-underline')(class=className + '__link', href=navItem.href)
+            +button(navItem.title, 'lnk-underline')(class=className + '__link js-anchor', href=navItem.href)

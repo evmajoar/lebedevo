@@ -9,17 +9,17 @@
     display: grid
     grid-template-columns: 1fr
     grid-column-gap: $grid-gutter-width
-    padding: 18px $grid-gutter-width / 2
+    padding: 20px ($grid-gutter-width / 2) 22px
     margin: 0 auto
 
     @include breakPoint(md)
       padding-top: 25px
-      padding-bottom: 19px
+      padding-bottom: 27px
       @include gridMD()
 
     @include breakPoint(xl)
-      padding-top: 50px
-      padding-bottom: 56px
+      padding-top: 56px
+      padding-bottom: 53px
       @include gridXL()
 
 
@@ -31,10 +31,18 @@
 
 
   &__info
+    margin-bottom: 20px
+
     @include breakPoint(md)
       display: flex
       align-items: center
-      grid-column: 1 / 10
+      grid-column: 1 / -1
+      margin-bottom: 40px
+      max-width: 435px
+
+    @include breakPoint(xl)
+      margin-bottom: 60px
+      max-width: 672px
 
 
   &__title
@@ -43,15 +51,11 @@
     text-transform: uppercase
     margin-bottom: 5px
 
-    br
-      display: none
-      @include breakPoint(md)
-        display: block
-
     @include breakPoint(md)
       position: relative
       margin-bottom: 0
       padding-right: 17px
+      flex-shrink: 0
 
     @include breakPoint(xl)
       @include calcRem(35)
@@ -77,14 +81,98 @@
     font-weight: 300
     line-height: 1.35
 
-    br
-      display: none
-      @include breakPoint(md)
-        display: block
-
     @include breakPoint(md)
       padding-left: 13px
 
     @include breakPoint(xl)
       @include calcRem(14)
       padding-left: 17px
+
+
+  &__list
+    list-style: none
+    padding: 0
+    max-width: 297px
+    margin: 0 auto
+
+    @include breakPoint(sm)
+      display: grid
+      grid-template-columns: repeat(2, 1fr)
+      grid-gap: $grid-gutter-width - 10
+      max-width: 100%
+      width: 100%
+
+    @include breakPoint(md)
+      grid-template-columns: repeat(3, 1fr)
+      grid-column-gap: $grid-gutter-width
+      grid-row-gap: 40px
+      grid-column: 1 / -1
+
+
+  &__figure
+    margin-bottom: 20px
+
+    @include breakPoint(md)
+      margin-bottom: 23px
+
+    @include breakPoint(xl)
+      margin-bottom: 26px
+
+
+  &__item
+    margin-bottom: 30px
+
+    @include breakPoint(sm)
+      margin-bottom: 0
+
+    &:last-child
+      margin-bottom: 0
+
+    &-title
+      margin: 0 0 9px
+      text-transform: uppercase
+      @include calcRem(13)
+
+      @include breakPoint(xl)
+        @include calcRem(18)
+        margin-bottom: 19px
+
+
+  &__table
+    table-layout: fixed
+    border-collapse: collapse
+    margin-bottom: 15px
+
+    tr
+      td:first-child
+        width: 120px
+
+        @include breakPoint(xl)
+          width: 190px
+
+      td:last-child
+        text-align: right
+
+
+  &__cell
+    font-weight: 300
+    @include calcRem(13)
+    padding: 6px 0
+
+    @include breakPoint(xl)
+      @include calcRem(16)
+
+
+  &__link
+    font-weight: 300
+    @include calcRem(15)
+
+    @include breakPoint(xl)
+      @include calcRem(20)
+
+    &:active
+      color: $color-green
+
+    &:hover
+      @include breakPoint(xl)
+        color: $color-green

@@ -37,11 +37,13 @@
     @include breakPoint(md)
       display: flex
       align-items: center
-      grid-column-start: 1
+      grid-column: 1 / -1
       margin-bottom: 37px
+      max-width: 450px
 
     @include breakPoint(xl)
       margin-bottom: 50px
+      max-width: 665px
 
 
   &__content
@@ -110,7 +112,7 @@
     margin-bottom: 20px
 
     @include breakPoint(md)
-      margin-bottom: 50px
+      margin-bottom: 40px
 
 
   &__list

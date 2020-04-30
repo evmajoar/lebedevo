@@ -10,17 +10,17 @@ observationVideoOverlay.on('click', function () {
 });
 
 
-function runWeatherWidget() {
-  if ($(window).width() >= 768) {
-    if (!$('#weather').length)
-      $('.' + observation + '__weather').append('<div id="weather" class="elfsight-app-2040b944-b856-440e-90be-c49c8c661d26"></div>');
-  } else {
-    if ($('#weather').length) {
-      $('#weather').remove();
-    }
-  }
-}
-
-
-$(document).ready(runWeatherWidget);
-$(window).resize(runWeatherWidget);
+// function runWeatherWidget() {
+//   if ($(window).width() >= 768) {
+//     if (!$('#weather').length)
+//       $('.' + observation + '__weather').append('<div id="weather" class="elfsight-app-2040b944-b856-440e-90be-c49c8c661d26"></div>');
+//   } else {
+//     if ($('#weather').length) {
+//       $('#weather').remove();
+//     }
+//   }
+// }
+//
+//
+// $(document).ready(runWeatherWidget);
+// $(window).resize(runWeatherWidget);

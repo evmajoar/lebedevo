@@ -1,6 +1,6 @@
-var $anchor = $('.nav__link');
+var $anchor = $('.js-anchor');
 
-if ($anchor.length) {
+if ($anchor !== 'undefined') {
   $anchor.on('click', function (event) {
     event.preventDefault();
     var $that = $(this), hb = $('body, html');

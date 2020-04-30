@@ -99,13 +99,17 @@
     height: 194px
     position: relative
     overflow: hidden
+    margin: 0 auto
+    max-width: 522px
+    width: 100%
 
     &::before
       content: 'Загрузка видео...'
       position: absolute
       display: block
-      top: calc(50% - 10px)
-      left: calc(50% - 65px)
+      @include calcRem(14)
+      top: calc(50% - 8px)
+      left: calc(50% - 60px)
       font-weight: 700
       font-style: italic
 
@@ -113,6 +117,7 @@
       grid-row-start: 2
       grid-column: 1 / 8
       height: 423px
+      max-width: 100%
 
     @include breakPoint(xl)
       grid-column: 2 / 9
@@ -163,13 +168,30 @@
     display: none
 
     @include breakPoint(md)
+      position: relative
+      overflow: hidden
       grid-row-start: 2
       grid-column: 8 / -1
       display: block
+      background-color: #C4C4C4
       height: 423px
 
     @include breakPoint(xl)
       grid-column: 9 / 12
 
+    &::before
+      @include breakPoint(md)
+        content: 'Загрузка погоды...'
+        position: absolute
+        display: block
+        @include calcRem(14)
+        top: calc(50% - 8px)
+        left: calc(50% - 67px)
+        font-weight: 700
+        font-style: italic
+
     .eaw-detail-iconBlock
       margin-left: -90px !important
+
+    #weather
+      background-color: $color-white
