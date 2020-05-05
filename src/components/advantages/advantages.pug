@@ -1,0 +1,13 @@
+mixin advantages()
+
+    - var className = 'advantages'
+
+    include advantages.data.pug
+
+    section(class=className)
+      div(class=className + '__container')
+        ul(class=className + '__list')
+          each item in advantagesData
+            li(class=className + '__item')
+              strong= item.title
+              p= item.text

@@ -1,0 +1,291 @@
+@import "../../library/variables.sass"
+@import "../../library/mixins.sass"
+
+.cards-big
+  $component: & // #{component}__element
+
+
+  &__container
+    @include breakPoint(xl)
+      display: grid
+      grid-template-columns: repeat(2, 50%)
+      padding-left: 399px
+
+
+  &__title
+    margin: 0
+    margin-bottom: 16px
+    @include calcRem(24)
+
+    @include breakPoint(xl)
+      margin-bottom: 20px
+      grid-column: 1 / -1
+
+
+  &__tabs
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    grid-column-gap: 10px
+    margin-bottom: 10px
+
+
+  &__tab
+    min-width: 100px
+    padding: 8px 15px
+    border: 1px solid #C4C4C4
+
+    &.is-current
+      background-color: #C4C4C4
+      cursor: auto
+
+      &:hover
+        @include breakPoint(xl)
+          border-color: #C4C4C4
+          color: $color-black
+
+    @include breakPoint(xl)
+      @include calcRem(16)
+
+    &:active
+      border-color: $color-orange
+
+    &:hover
+      @include breakPoint(xl)
+        border-color: $color-orange
+        color: $color-orange
+
+
+  &__header-table
+    margin-bottom: 10px
+
+    @include breakPoint(xl)
+      margin-bottom: 25px
+      grid-column: 1 / -1
+
+    tr
+      td
+        width: 50%
+        text-align: right
+        &:first-child
+          min-width: 160px
+          text-align: left
+
+
+  &__header-cell
+    padding: 4px 0
+    @include calcRem(14)
+    font-weight: 600
+
+
+  &__gallery-container
+    @include breakPoint(xl)
+      width: 349px
+      height: 470px
+      position: absolute
+      top: 0
+      left: 0
+
+    &.is-hide
+      display: none
+
+
+  &__gallery-list,
+  &__thumbs-list
+    list-style: none
+    margin: 0
+    padding: 0
+
+
+  &__gallery-figure,
+  &__thumbs-figure
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    margin: 0
+
+
+  &__gallery-figure
+    img
+      min-width: 286px
+      min-height: 246px
+
+      @include breakPoint(xl)
+        min-width: 349px
+        min-height: 301px
+
+
+  &__thumbs-figure
+    img
+      min-width: 90px
+      min-height: 78px
+
+      @include breakPoint(xl)
+        min-width: 111px
+        min-height: 96px
+
+
+  &__gallery-wrapper
+    margin-bottom: 16px
+
+    @include breakPoint(xl)
+      margin-bottom: 19px
+
+
+  &__thumbs-wrapper
+    margin-bottom: 25px
+
+    @include breakPoint(xl)
+      margin-bottom: 19px
+
+
+  &__thumbs-item
+    cursor: pointer
+
+
+  &__pagination
+    display: flex
+    flex-flow: row wrap
+    align-items: center
+    justify-content: center
+
+    li
+      border-radius: 50%
+
+    .swiper-pagination-bullet
+      width: 12px
+      height: 12px
+      font-size: 0
+      display: flex
+      align-items: center
+      justify-content: center
+      margin: 0 1px 10px !important
+      opacity: 1
+      border: 0
+      background: none
+
+      @include breakPoint(xl)
+        width: 15px
+        height: 15px
+
+      span
+        width: 8px
+        height: 8px
+        background-color: #E5E5E5
+        border-radius: 50%
+        transition: background-color .15s
+
+        @include breakPoint(xl)
+          width: 10px
+          height: 10px
+
+      &:hover > span
+        @include breakPoint(xl)
+          background-color: $color-orange
+
+
+    .swiper-pagination-bullet-active
+      span
+        background-color: $color-green
+        width: 12px
+        height: 12px
+
+        @include breakPoint(xl)
+          width: 15px
+          height: 15px
+
+
+  &__text
+    line-height: 1.35
+    @include calcRem(14)
+    font-weight: 300
+    margin-bottom: 30px
+
+    @include breakPoint(xl)
+      padding-right: 15px
+      margin-bottom: 40px
+      grid-column: 1 / -1
+
+
+  &__content-table
+    table-layout: fixed
+    border-collapse: collapse
+    margin-bottom: 24px
+    width: 100%
+
+    @include breakPoint(xl)
+      margin-bottom: 50px
+      grid-column: 1 / -1
+
+    tr
+      td
+        text-align: right
+        &:first-child
+          text-align: left
+
+
+  &__content-cell
+    padding: 5px 4px
+    border: 1px solid #828282
+    @include calcRem(10)
+    font-weight: 300
+
+    &.is-hide
+      display: none
+
+
+  &__links
+    margin-bottom: 25px
+
+
+  &__link
+    align-items: center
+    margin-bottom: 10px
+    color: $color-green
+
+    span
+      margin-left: 10px
+      @include calcRem(13)
+      font-weight: 300
+
+    svg
+      order: -1
+      fill: $color-white
+      //width: 25px
+      //height: 25px
+
+    &:last-child
+      margin-bottom: 0
+
+
+  &__buttons
+    margin-bottom: 0
+
+
+  &__button
+    width: 100%
+    min-width: 100%
+
+  div[data-name="karkas"],
+  td[data-name="karkas"],
+  div[data-name="twinblock"],
+  td[data-name="twinblock"]
+    animation: show $transition-time
+    display: none
+
+
+  div[data-name="karkas"],
+  div[data-name="twinblock"]
+    &.is-active
+      display: block
+
+
+  td[data-name="karkas"],
+  td[data-name="twinblock"]
+    &.is-active
+      display: table-cell
+
+
+
+
+

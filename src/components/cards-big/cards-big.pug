@@ -1,0 +1,132 @@
+mixin cards-big()
+
+  - var className = 'cards-big'
+
+  include ../cards/cards.data.pug
+  include cards-big.data.pug
+
+  article(class=className)
+    div(class=className + '__container')
+      h2(class=className + '__title') Дом “#{cardsData[0].title}“
+      p(class=className + '__tabs')
+        +button('Каркас', 'btn')(class=className + '__tab is-current', data-target-id='karkas')
+        +button('Твинблок', 'btn')(class=className + '__tab', data-target-id='twinblock')
+      table(class=className + '__header-table')
+        tr
+          td(class=className + '__header-cell') Общая площадь дома
+          td(class=className + '__header-cell')= cardsData[0].areaHome + ' м²'
+        tr
+          td(class=className + '__header-cell') Жилая площадь
+          td(class=className + '__header-cell')= cardsData[0].area + ' сот'
+        tr
+          td(class=className + '__header-cell') Цена
+          td(class=className + '__header-cell is-active', data-name='karkas') от #{cardsData[0].price} т. руб
+          td(class=className + '__header-cell', data-name='twinblock') от 2 765 т. руб
+
+      div(class=className + '__gallery-container ' + className + '__gallery-container--karkas is-active', data-name='karkas')
+        div.swiper-container(class=className + '__gallery-wrapper')
+          ul.swiper-wrapper(class=className + '__gallery-list')
+            li.swiper-slide(class=className + '__gallery-item')
+              figure(class=className + '__gallery-figure')
+                img( src=imagePath + 'cards/vigo-1.jpg', title=cardsData[0].title, alt=cardsData[0].title)
+            li.swiper-slide(class=className + '__gallery-item')
+              figure(class=className + '__gallery-figure')
+                img( src=imagePath + 'cards/vigo-2.jpg', title=cardsData[0].title, alt=cardsData[0].title)
+            li.swiper-slide(class=className + '__gallery-item')
+              figure(class=className + '__gallery-figure')
+                img( src=imagePath + 'cards/vigo-3.jpg', title=cardsData[0].title, alt=cardsData[0].title)
+            li.swiper-slide(class=className + '__gallery-item')
+              figure(class=className + '__gallery-figure')
+                img( src=imagePath + 'cards/vigo-4.jpg', title=cardsData[0].title, alt=cardsData[0].title)
+        div.swiper-container(class=className + '__thumbs-wrapper')
+          ul.swiper-wrapper(class=className + '__thumbs-list')
+            li.swiper-slide(class=className + '__thumbs-item')
+              figure(class=className + '__thumbs-figure')
+                img( src=imagePath + 'cards/vigo-1.jpg', title=cardsData[0].title, alt=cardsData[0].title)
+            li.swiper-slide(class=className + '__thumbs-item')
+              figure(class=className + '__thumbs-figure')
+                img( src=imagePath + 'cards/vigo-2.jpg', title=cardsData[0].title, alt=cardsData[0].title)
+            li.swiper-slide(class=className + '__thumbs-item')
+              figure(class=className + '__thumbs-figure')
+                img( src=imagePath + 'cards/vigo-3.jpg', title=cardsData[0].title, alt=cardsData[0].title)
+            li.swiper-slide(class=className + '__thumbs-item')
+              figure(class=className + '__thumbs-figure')
+                img( src=imagePath + 'cards/vigo-4.jpg', title=cardsData[0].title, alt=cardsData[0].title)
+        ul( class=className + '__pagination' )
+
+
+
+      div(class=className + '__gallery-container ' + className + '__gallery-container--twin', data-name='twinblock')
+        div.swiper-container(class=className + '__gallery-wrapper')
+          ul.swiper-wrapper(class=className + '__gallery-list')
+            li.swiper-slide(class=className + '__gallery-item')
+              figure(class=className + '__gallery-figure')
+                img( src=imagePath + 'cards/vigo-1.jpg', title=cardsData[0].title, alt=cardsData[0].title)
+            li.swiper-slide(class=className + '__gallery-item')
+              figure(class=className + '__gallery-figure')
+                img( src=imagePath + 'cards/vigo-2.jpg', title=cardsData[0].title, alt=cardsData[0].title)
+            li.swiper-slide(class=className + '__gallery-item')
+              figure(class=className + '__gallery-figure')
+                img( src=imagePath + 'cards/vigo-3.jpg', title=cardsData[0].title, alt=cardsData[0].title)
+            li.swiper-slide(class=className + '__gallery-item')
+              figure(class=className + '__gallery-figure')
+                img( src=imagePath + 'cards/vigo-4.jpg', title=cardsData[0].title, alt=cardsData[0].title)
+        div.swiper-container(class=className + '__thumbs-wrapper')
+          ul.swiper-wrapper(class=className + '__thumbs-list')
+            li.swiper-slide(class=className + '__thumbs-item')
+              figure(class=className + '__thumbs-figure')
+                img( src=imagePath + 'cards/vigo-1.jpg', title=cardsData[0].title, alt=cardsData[0].title)
+            li.swiper-slide(class=className + '__thumbs-item')
+              figure(class=className + '__thumbs-figure')
+                img( src=imagePath + 'cards/vigo-2.jpg', title=cardsData[0].title, alt=cardsData[0].title)
+            li.swiper-slide(class=className + '__thumbs-item')
+              figure(class=className + '__thumbs-figure')
+                img( src=imagePath + 'cards/vigo-3.jpg', title=cardsData[0].title, alt=cardsData[0].title)
+            li.swiper-slide(class=className + '__thumbs-item')
+              figure(class=className + '__thumbs-figure')
+                img( src=imagePath + 'cards/vigo-4.jpg', title=cardsData[0].title, alt=cardsData[0].title)
+        ul( class=className + '__pagination' )
+
+
+
+      p(class=className + '__text').
+        Виго - это просторный одноэтажный дом с терассой. В нём нет лестницы, и это делает Виго безопасным для семей с маленькими детьми или пожилыми родителями.
+        #[br]#[br]
+        В здании есть металлические сейф-двери и пластиковые окна из немецкого 5-тикамерного профиля Favorit. Проведено электричество, отопление и водоснабжение.
+      table(class=className + '__content-table')
+        tr
+          td(class=className + '__content-cell') Общая площадь
+          td(class=className + '__content-cell')= cardsData[0].areaHome + ' м²'
+        tr
+          td(class=className + '__content-cell') Жилая площадь
+          td(class=className + '__content-cell')= cardsData[0].area + ' сот'
+        tr
+          td(class=className + '__content-cell') Количество этажей
+          td(class=className + '__content-cell') 1
+        tr
+          td(class=className + '__content-cell') Высота этажей
+          td(class=className + '__content-cell') 2.85 м.
+        tr
+          td(class=className + '__content-cell') Терасса
+          td(class=className + '__content-cell') да
+        tr
+          td(class=className + '__content-cell') Гараж
+          td(class=className + '__content-cell') Нет
+        tr
+          td(class=className + '__content-cell') Цена
+          td(class=className + '__content-cell is-active', data-name='karkas') от #{cardsData[0].price} т. руб
+          td(class=className + '__content-cell', data-name='twinblock') от 2 765 т. руб
+      p(class=className + '__links')
+        +button('Распечатать', 'lnk, lnk-underline')(class=className + '__link', href='#', data-id='print')
+          <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18.75 17.9688H19.9219C20.4394 17.9672 20.9353 17.7609 21.3013 17.395C21.6672 17.0291 21.8734 16.5331 21.875 16.0156V8.20312C21.8734 7.68559 21.6672 7.18972 21.3013 6.82377C20.9353 6.45781 20.4394 6.25155 19.9219 6.25H5.07812C4.56059 6.25155 4.06472 6.45781 3.69877 6.82377C3.33281 7.18972 3.12655 7.68559 3.125 8.20312V16.0156C3.12655 16.5331 3.33281 17.0291 3.69877 17.395C4.06472 17.7609 4.56059 17.9672 5.07812 17.9688H6.25" stroke="black" stroke-linejoin="round"/>
+          <path d="M17.5625 11.7188H7.4375C6.78166 11.7188 6.25 12.2504 6.25 12.9063V20.6875C6.25 21.3433 6.78166 21.875 7.4375 21.875H17.5625C18.2183 21.875 18.75 21.3433 18.75 20.6875V12.9063C18.75 12.2504 18.2183 11.7188 17.5625 11.7188Z" stroke="black" stroke-linejoin="round"/>
+          <path d="M18.75 6.25V5.07812C18.7484 4.56059 18.5422 4.06472 18.1763 3.69877C17.8103 3.33281 17.3144 3.12655 16.7969 3.125H8.20312C7.68559 3.12655 7.18972 3.33281 6.82377 3.69877C6.45781 4.06472 6.25155 4.56059 6.25 5.07812V6.25" stroke="black" stroke-linejoin="round"/>
+          <path d="M19.1406 10.1562C19.7878 10.1562 20.3125 9.63158 20.3125 8.98438C20.3125 8.33717 19.7878 7.8125 19.1406 7.8125C18.4934 7.8125 17.9688 8.33717 17.9688 8.98438C17.9688 9.63158 18.4934 10.1562 19.1406 10.1562Z" fill="black"/>
+          </svg>
+        +button('Скачать перезентацию', 'lnk, lnk-underline')(class=className + '__link', href='#', download)
+          <svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5.72923 15.8334C4.20976 15.8337 2.75242 15.2304 1.67779 14.1562C0.603172 13.0819 -0.000700201 11.6248 -0.000976468 10.1053C-0.00125273 8.58585 0.602089 7.12851 1.67632 6.05388C2.75055 4.97926 4.20768 4.37539 5.72715 4.37511C6.31375 2.96966 7.35692 1.80293 8.68822 1.0633C10.0195 0.323674 11.5612 0.0543236 13.0645 0.29874C14.5677 0.543156 15.9446 1.28707 16.973 2.41037C18.0014 3.53367 18.6212 4.97079 18.7324 6.48969L19.2709 6.45845C20.5141 6.45845 21.7064 6.95231 22.5855 7.83138C23.4645 8.71046 23.9584 9.90274 23.9584 11.1459C23.9584 12.3891 23.4645 13.5814 22.5855 14.4605C21.7064 15.3396 20.5141 15.8334 19.2709 15.8334H5.72923ZM5.72923 5.41678C4.48603 5.41678 3.29374 5.91064 2.41467 6.78972C1.53559 7.66879 1.04173 8.86108 1.04173 10.1043C1.04173 11.3475 1.53559 12.5398 2.41467 13.4188C3.29374 14.2979 4.48603 14.7918 5.72923 14.7918H19.2709C19.8208 14.7913 20.3635 14.6665 20.8584 14.4266C21.3532 14.1867 21.7874 13.838 22.1284 13.4066C22.4694 12.9751 22.7083 12.4721 22.8274 11.9352C22.9464 11.3984 22.9425 10.8415 22.8159 10.3063C22.6892 9.7712 22.4431 9.27164 22.0961 8.84506C21.749 8.41848 21.31 8.07594 20.8118 7.84308C20.3136 7.61023 19.7692 7.49309 19.2193 7.50044C18.6694 7.50779 18.1283 7.63944 17.6365 7.88553L17.7084 6.97928C17.71 5.59033 17.207 4.24809 16.293 3.20229C15.379 2.15648 14.1161 1.47834 12.7395 1.29403C11.3628 1.10971 9.96608 1.43179 8.80914 2.20033C7.6522 2.96887 6.81385 4.13153 6.45006 5.47199L5.72923 5.41678ZM12.5001 5.41678V10.8855L14.8438 8.54178L15.6251 9.23345L11.9792 12.8793L8.3334 9.23345L9.11465 8.54178L11.4584 10.8855V5.41678H12.5001Z" fill="black"/>
+          </svg>
+      p(class=className + '__buttons')
+        +button('Оставить заявку', 'btn, btn-orange')(class=className + '__button js-modal', data-name='oz')

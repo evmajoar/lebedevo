@@ -20,6 +20,10 @@ mixin nav(tag, isMainNav, mods)
     div(class=className + '__wrapper')
       ul(class=className + '__list')
         each navItem in navData
-          li(class=className + '__item')
-            +button(navItem.title, 'lnk-underline')(class=className + '__link js-anchor', href=navItem.href)
+          if(navItem.title === 'Документы')
+            li(class=className + '__item')
+              +button(navItem.title, 'lnk-underline')(class=className + '__link js-modal', href=navItem.href, data-name='doc')
+          else
+            li(class=className + '__item')
+              +button(navItem.title, 'lnk-underline')(class=className + '__link js-anchor', href=navItem.href)
     +overlay()
