@@ -1,0 +1,71 @@
+mixin form(isFull)
+
+  -
+    var className = 'form'
+
+    // var allMods = '';
+    // if (typeof (mods) !== 'undefined' && mods) {
+    //   var modsList = mods.split(',');
+    //   for (var i = 0; i < modsList.length; i++) {
+    //     allMods += ' ' + className + '--' + modsList[i].trim();
+    //   }
+    // }
+
+  form(class=className + ' modal__form', action='/', method='post')
+    if(!isFull)
+      +field({
+        title: 'Ваше имя',
+        mods: '',
+        attrs: {
+          type: 'text',
+          name: 'name-#{mods}',
+          placeholder: 'Ваше имя'
+        }
+      }).modal__field
+      +field({
+        title: 'Ваш номер телефона',
+        mods: '',
+        attrs: {
+          type: 'tel',
+          name: 'phone-#{mods}',
+          placeholder: 'Ваш номер телефона'
+        }
+      }).modal__field
+      +field({
+        title: 'Ваш e-mail',
+        mods: '',
+        attrs: {
+          type: 'email',
+          name: 'email-#{mods}',
+          placeholder: 'Ваш e-mail'
+        }
+      }).modal__field
+      +field({
+        title: 'Ваш комментарий',
+        mods: '',
+        attrs: {
+          type: 'text',
+          name: 'comment-#{mods}',
+          placeholder: 'Ваш комментарий'
+        }
+      }).modal__field
+    else
+      +field({
+        title: 'Ваше имя',
+        mods: '',
+        attrs: {
+          type: 'text',
+          name: 'name-#{mods}',
+          placeholder: 'Ваше имя'
+        }
+      }).modal__field
+      +field({
+        title: 'Ваш номер телефона',
+        mods: '',
+        attrs: {
+          type: 'tel',
+          name: 'phone-#{mods}',
+          placeholder: 'Ваш номер телефона'
+        }
+      }).modal__field
+    +button('Отправить', 'btn, btn-orange').modal__button

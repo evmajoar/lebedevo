@@ -1,6 +1,7 @@
 extends ../../layout/layout.pug
 
 include ../../components/button/button.pug
+include ../../components/field/field.pug
 include ../../components/logo/logo.pug
 include ../../components/nav/nav.pug
 include ../../components/overlay/overlay.pug
@@ -14,6 +15,8 @@ include ../../components/gallery/gallery.pug
 include ../../components/observation/observation.pug
 include ../../components/map/map.pug
 include ../../components/page-footer/page-footer.pug
+include ../../components/modals/modals.pug
+include ../../components/cards-big/cards-big.pug
 
 block meta
 
@@ -24,39 +27,40 @@ block meta
   title= title + ' | ' + description
 
   //- Разметка Open Graph
-    meta(property='og:title', content=title)
-    meta(property='og:description', content=description)
-    meta(property='og:type', content='website')
-    meta(property='og:url', content=siteURL)
-    meta(property='og:locale', content=language + '_' + language.toUpperCase())
-    meta(property='og:image', content=imagePath + 'poster.png')
-    meta(property='og:image:type', content='image/png')
-    meta(property='og:image:height', content='512')
-    meta(property='og:image:width', content='512')
-    meta(property='og:site_name', content=siteName)
+  meta(property='og:title', content=title)
+  meta(property='og:description', content=description)
+  meta(property='og:type', content='website')
+  meta(property='og:url', content=siteURL)
+  meta(property='og:locale', content=language + '_' + language.toUpperCase())
+  meta(property='og:image', content=imagePath + 'poster.png')
+  meta(property='og:image:type', content='image/png')
+  meta(property='og:image:height', content='512')
+  meta(property='og:image:width', content='512')
+  meta(property='og:site_name', content=siteName)
 
   //- Разметка Twitter Card
-    meta(name='twitter:card', content='summary')
-    meta(name='twitter:title', content=title)
-    meta(name='twitter:description', content=description)
-    meta(name='twitter:image', content=imagePath + 'poster.png')
-    meta(name='twitter:site', content=siteName)юм
+  meta(name='twitter:card', content='summary')
+  meta(name='twitter:title', content=title)
+  meta(name='twitter:description', content=description)
+  meta(name='twitter:image', content=imagePath + 'poster.png')
+  meta(name='twitter:site', content=siteName)
 
 block append head
-  link(rel='dns-prefetch' href='https://www.google.com/')
-  link(rel='dns-prefetch' href='https://maps.googleapis.com/')
-  link(rel='dns-prefetch' href='https://apps.elfsight.com/')
-  link(rel='dns-prefetch' href='https://fls.kat-telecom.ru/')
-  link(rel='preconnect' href='https://www.google.com/')
-  link(rel='preconnect' href='https://maps.googleapis.com/')
-  link(rel='preconnect' href='https://apps.elfsight.com/')
-  link(rel='preconnect' href='https://fls.kat-telecom.ru/')
-  link(rel='preload' href='/fonts/OpenSans/OpenSans-Light.woff2' as="font")
-  link(rel='preload' href='/fonts/OpenSans/OpenSans-Regular.woff2' as="font")
-  link(rel='preload' href='/fonts/OpenSans/OpenSans-SemiBold.woff2' as="font")
-  link(rel='preload' href='/fonts/OpenSans/OpenSans-SemiBold.woff2' as="font")
-  link(rel='preload' href='/fonts/OpenSans/OpenSans-Bold.woff2' as="font")
+  link(rel='dns-prefetch' href='//www.google.com/')
+  link(rel='dns-prefetch' href='//maps.googleapis.com/')
+  link(rel='dns-prefetch' href='//apps.elfsight.com/')
+  link(rel='dns-prefetch' href='//fls.kat-telecom.ru/')
+  link(rel='preconnect' href='//www.google.com/')
+  link(rel='preconnect' href='//maps.googleapis.com/')
+  link(rel='preconnect' href='//apps.elfsight.com/')
+  link(rel='preconnect' href='//fls.kat-telecom.ru/')
+  link(rel='preload' href='/fonts/OpenSans/OpenSans-Light.woff2' as="font" crossorigin)
+  link(rel='preload' href='/fonts/OpenSans/OpenSans-Regular.woff2' as="font" crossorigin)
+  link(rel='preload' href='/fonts/OpenSans/OpenSans-SemiBold.woff2' as="font" crossorigin)
+  link(rel='preload' href='/fonts/OpenSans/OpenSans-SemiBold.woff2' as="font" crossorigin)
+  link(rel='preload' href='/fonts/OpenSans/OpenSans-Bold.woff2' as="font" crossorigin)
   link(rel='canonical' href=siteURL + siteURN)
+  link(rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css")
   link(rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css")
   link(rel='stylesheet' href='styles/' + fileName + '.css')
 
@@ -75,7 +79,11 @@ block content
 block footer
   +page-footer()
 
+block modals
+  +modals()
+
 block append foot
-  <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+  script(src="//apps.elfsight.com/p/platform.js" defer)
   script(src="//cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js")
+  script( src="//cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js" )
   script(src='scripts/' + fileName + '.js')

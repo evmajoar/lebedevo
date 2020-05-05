@@ -1,0 +1,18 @@
+mixin modal(mods)
+
+  -
+    var className = 'modal'
+
+    var allMods = '';
+    if (typeof (mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods += ' ' + className + '--' + modsList[i].trim();
+      }
+    }
+
+  div(class=className + allMods)
+    button(class=className + '__close', type='button')
+      span Закрыть окно
+    div(class=className + '__container')
+      block

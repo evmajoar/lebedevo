@@ -1,0 +1,29 @@
+mixin modals()
+
+  - var className = 'modals'
+
+  include ../modal/modal.pug
+  include ../form/form.pug
+  include ../cards-big/cards-big.pug
+
+  div(class=className)
+    +modal('oz')
+      h2(class='modal__title') Оставьте заявку
+      p(class='modal__text') мы свяжемся с вами в течение 24 <br> часов и обсудим детали
+      +form()
+    +modal('zne')
+      h2(class='modal__title') Запишитесь на экскурсию
+      p(class='modal__text') приезжайте в гости в любой день <br> с 12 до 17
+      +form()
+    +modal('ov')
+      h2(class='modal__title') Остались вопросы?
+      p(class='modal__text') оставтьте свой номер, и мы перезвоним <br> Вам в течение 24 часов.
+      +form(true)
+    +modal('th')
+      h2(class='modal__title') Спасибо!
+      p(class='modal__text') в ближайшее время <br> мы свяжемся с вами
+    +modal('h, h1')
+      +cards-big()
+    +modal('h, h2')
+      +cards-big()
+    +overlay()

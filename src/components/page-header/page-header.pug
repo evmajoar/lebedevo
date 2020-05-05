@@ -13,6 +13,6 @@ mixin page-header()
         strong Место, в котором #[br] хочется жить
         | Постройте свой идеальный загородный дом #[br] и наслаждайтесь тихой размеренной жизнью на природе
       p.page-header__content-buttons
-        +button('Записаться на экскурсию', 'btn, btn-transparent')(class='page-header__content-button')
-        +button('Оставить заявку', 'btn, btn-orange')(class='page-header__content-button')
+        +button('Записаться на экскурсию', 'btn, btn-transparent')(class='page-header__content-button js-modal', data-name='zne')
+        +button('Оставить заявку', 'btn, btn-orange')(class='page-header__content-button js-modal', data-name='oz')
   +overlay()

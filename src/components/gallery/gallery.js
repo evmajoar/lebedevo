@@ -4,6 +4,7 @@ var gallery = new Swiper( '.gallery__list-wrapper', {
   centeredSlides: true,
   centeredSlidesBounds: true,
   spaceBetween: 20,
+  lazy: true,
   pagination: {
     el: '.gallery__pagination',
     clickable: true,

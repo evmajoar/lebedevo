@@ -1,0 +1,34 @@
+mixin field(props)
+
+  //- описание аргументов функции
+    props {
+      title: ''          - текст с названием (выводится над полем) [string]
+      isTextarea: false  - флаг input/textarea [bool]
+      helpText: ''       - пояснение под полем [string]
+      mods: ''           - модификаторы блока [string]
+      val: ''            - текст в поле [string]
+      attrs:             - любые атрибуты для input/textarea [object]
+        type:           [string]
+        placeholder:    [string]
+
+  -
+    if(typeof(props) === 'undefined') {
+      var props = {};
+    }
+
+    var allMods = '';
+    if (typeof (mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods += ' ' + className + '--' + modsList[i].trim();
+      }
+    }
+
+  label.field(class=allMods)&attributes(attributes)
+    if(typeof(props.title) !== 'undefined' && props.title)
+      span.field__name!= props.title
+    span.field__input-wrap
+      input.field__input(type=(typeof(props.attrs) !== 'undefined' && props.attrs.type) ? props.attrs.type : 'text', value=props.val)&attributes(props.attrs)
+      if(typeof(props.helpText) !== 'undefined' && props.helpText)
+        span.field__help-text!= props.helpText
+      block

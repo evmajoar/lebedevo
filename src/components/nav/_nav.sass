@@ -11,10 +11,10 @@
     background-color: #95BB7E
     position: absolute
     top: 0
-    left: 0
-    width: 100%
+    right: 0
+    max-width: 320px
     height: 100%
-    z-index: 6
+    z-index: 7
     padding: 80px $grid-gutter-width / 2
     overflow-x: hidden
     overflow-y: auto
@@ -28,6 +28,7 @@
       padding: 0
       background-color: transparent
       animation: none
+      max-width: 100%
 
 
   &__list
@@ -96,6 +97,22 @@
           animation: mainNav $transition-time linear forwards
 
 
+  .overlay
+    animation: show $transition-time
+    display: none
+    background-color: transparentize($color-black, .5)
+    position: absolute
+    top: 0
+    right: 0
+    height: 100%
+    z-index: 6
+    padding: 80px $grid-gutter-width / 2
+    overflow-x: hidden
+    overflow-y: auto
+    min-height: 100vh
+
+
   &--open
-    #{$component}__wrapper
+    #{$component}__wrapper,
+    .overlay
       display: block

@@ -1,43 +1,43 @@
-"use strict";
+'use strict';
 
-const { series, parallel, src, dest, watch } = require("gulp");
-const pug = require("gulp-pug");
-const sass = require("gulp-sass");
-const autoprefixer = require("gulp-autoprefixer");
-const csso = require("gulp-csso");
-const webpackStream = require("webpack-stream");
-const plumber = require("gulp-plumber");
-const notify = require("gulp-notify");
-const rename = require("gulp-rename");
-const del = require("del");
-const browserSync = require("browser-sync").create();
+const { series, parallel, src, dest, watch } = require('gulp');
+const pug = require('gulp-pug');
+const sass = require('gulp-sass');
+const autoprefixer = require('gulp-autoprefixer');
+const csso = require('gulp-csso');
+const webpackStream = require('webpack-stream');
+const plumber = require('gulp-plumber');
+const notify = require('gulp-notify');
+const rename = require('gulp-rename');
+const del = require('del');
+const browserSync = require('browser-sync').create();
 
 // Корневые папки
 const root = {
-  src: "src/",
-  build: "dist/",
+  src: 'src/',
+  build: 'dist/',
 };
 
 // Папки сборки
 const path = {
   build: {
     html: root.build,
-    css: root.build + "styles/",
-    js: root.build + "scripts/",
+    css: root.build + 'styles/',
+    js: root.build + 'scripts/',
   },
 };
 
 // Очистка дерикторий
 function clearBuildDir() {
   return del([
-    "build/**",
-    "!build",
-    "!build/fonts",
-    "!build/fonts/**",
-    "!build/images",
-    "!build/images/**",
-    "!build/favicon",
-    "!build/favicon/**",
+    'build/**',
+    '!build',
+    '!build/fonts',
+    '!build/fonts/**',
+    '!build/images',
+    '!build/images/**',
+    '!build/favicon',
+    '!build/favicon/**',
   ]);
 }
 exports.clearBuildDir = clearBuildDir;
@@ -51,8 +51,8 @@ function compilePug() {
     .pipe(
       plumber({
         errorHandler: notify.onError({
-          title: "Ошибка PUG",
-          message: "Error: <%= error.message %>",
+          title: 'Ошибка PUG',
+          message: 'Error: <%= error.message %>',
         }),
       })
     )
@@ -63,7 +63,7 @@ function compilePug() {
     )
     .pipe(
       rename({
-        dirname: "",
+        dirname: '',
       })
     )
     .pipe(dest(path.build.html))
@@ -77,8 +77,8 @@ function compileSass() {
     .pipe(
       plumber({
         errorHandler: notify.onError({
-          title: "Ошибка sass",
-          message: "Error: <%= error.message %>",
+          title: 'Ошибка sass',
+          message: 'Error: <%= error.message %>',
         }),
       })
     )
@@ -96,8 +96,8 @@ function compileSass() {
     )
     .pipe(
       rename({
-        dirname: "",
-        suffix: ".min",
+        dirname: '',
+        suffix: '.min',
       })
     )
     .pipe(dest(path.build.css))
@@ -113,8 +113,8 @@ function buildJs() {
     .pipe(
       plumber({
         errorHandler: notify.onError({
-          title: "Ошибка JS",
-          message: "Error: <%= error.message %>",
+          title: 'Ошибка JS',
+          message: 'Error: <%= error.message %>',
         }),
       })
     )
@@ -123,18 +123,18 @@ function buildJs() {
         entry: {
           main: `./${root.src}pages/main/main.js`,
         },
-        mode: "production",
+        mode: 'production',
         output: {
-          filename: "[name].min.js",
+          filename: '[name].min.js',
         },
         module: {
           rules: [
             {
               test: /\.(js)$/,
               exclude: /(node_modules)/,
-              loader: "babel-loader",
+              loader: 'babel-loader',
               query: {
-                presets: ["@babel/preset-env"],
+                presets: ['@babel/preset-env'],
               },
             },
           ],
@@ -165,7 +165,7 @@ function serve() {
     cors: true,
     notify: false,
     port: 3000,
-    startPath: "main.html",
+    startPath: 'main.html',
     open: true,
   });
 
@@ -177,7 +177,7 @@ function serve() {
       `${root.src}components/**/*.pug`,
     ],
     {
-      events: ["all"],
+      events: ['all'],
       delay: 100,
     },
     series(compilePug, reload)
@@ -192,7 +192,7 @@ function serve() {
       `${root.src}components/**/*.sass`,
     ],
     {
-      events: ["all"],
+      events: ['all'],
       delay: 100,
     },
     series(compileSass, reload)
@@ -205,7 +205,7 @@ function serve() {
       `${root.src}components/**/*.js`
     ],
     {
-      events: ["all"],
+      events: ['all'],
       delay: 100,
     },
     series(buildJs, reload)

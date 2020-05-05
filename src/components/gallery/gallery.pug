@@ -15,7 +15,8 @@ mixin gallery()
             each item in galleryData
               li.swiper-slide(class=className + '__item')
                 figure(class=className + '__figure')
-                  img(src=imagePath + 'gallery/' + item.imgName + '.jpg', title=item.title, alt=item.title)
+                  img(class='swiper-lazy', data-src=imagePath + 'gallery/' + item.imgName + '.jpg', title=item.title, alt=item.title)
+                  <div class="swiper-lazy-preloader"></div>
           ul( class=className + '__pagination' )
         p(class=className + '__buttons')
-          +button('записаться на экскурсию', 'btn, btn-orange')(class=className + '__button')
+          +button('записаться на экскурсию', 'btn, btn-orange')(class=className + '__button js-modal', data-name='zne')

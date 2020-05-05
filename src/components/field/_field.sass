@@ -1,0 +1,67 @@
+@import "../../library/variables.sass"
+@import "../../library/mixins.sass"
+
+.field
+  $component: & // #component__element
+
+
+  &__name
+    @include hideText
+
+
+  &__input-wrap
+    display: block
+
+
+  &__input
+    display: inline-block
+    vertical-align: middle
+    width: 100%
+    height: 24px
+    margin: 0
+    border: 0
+    border-bottom: 1px solid #525252
+    padding: 0
+    @include calcRem(12)
+    font-weight: 300
+    font-family: $font-family
+    line-height: $line-height
+    background-color: #fff
+    box-shadow: none !important
+    -moz-appearance: textfield
+    appearance: textfield
+
+    @include breakPoint(xl)
+      @include calcRem(16)
+      padding: 15px 0
+
+    &[disabled],
+    &[readonly]
+      cursor: not-allowed
+      background-color: $gray
+
+    &::placeholder
+      color: $gray
+      opacity: 1
+
+    @include placeholder
+      color: $gray
+
+    @include placeholder-hidden
+
+
+  &__help-text
+    display: block
+    &:empty
+      display: none
+
+  .has-error
+    #{$component}__name,
+    #{$component}__input,
+    #{$component}__help-text
+      color: #FB794F
+
+    #{$component}__input
+      border-bottom-color: #FB794F
+      @include placeholder
+        color: #FB794F

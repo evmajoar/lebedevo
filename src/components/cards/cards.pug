@@ -8,7 +8,7 @@ mixin cards()
     div(class=className + '__container')
       div(class=className + '__info')
         h2(class=className + '__title') Выберите свой #[br] идеальный дом
-        p(class=className + '__description') мы предлагаем недвижимость на любой вкус, вы можете выбрать понравившийся вариант или мы построим дом по Вашему проекту
+        p(class=className + '__description') Мы предлагаем недвижимость на любой вкус, вы можете выбрать понравившийся вариант или мы построим дом по Вашему проекту
       ul(class=className + '__list')
         each item in cardsData
           li(class=className + '__item')
@@ -26,4 +26,8 @@ mixin cards()
                 td(class=className + '__cell') Цена
                 td(class=className + '__cell') от #{item.price} т. руб
             p(class=className + '__buttons')
-              +button('Подробнее...', 'lnk, lnk-underline')(href='', class=className + '__link')
+              +button('Подробнее...', 'lnk, lnk-underline')(href='', class=className + '__link js-modal-h', data-name=item.attr)
+        li(class=className + '__item is-last')
+          h3(class=className + '__item-title') Не нашли, что искали?
+          p(class=className + '__item-text') Мы с радостью построим дом согласно Вашему проекту и учтём любые пожелания.
+          +button('Скачать презентацию', 'btn, btn-orange')(class=className + '__item-link', href='#', download)

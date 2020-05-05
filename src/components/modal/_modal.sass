@@ -1,0 +1,148 @@
+@import "../../library/variables.sass"
+@import "../../library/mixins.sass"
+
+.modal
+  $component: & // #{component}__element
+  animation: slideDown $transition-time
+  display: none
+  position: relative
+  margin: auto
+  padding: 40px 15px 60px
+  background-color: $color-white
+  max-width: 316px
+  width: 100%
+  z-index: 102
+
+  @include breakPoint(xl)
+    padding: 50px 10px 55px
+    max-width: 375px
+
+
+  &--open
+    display: block
+
+
+  &__container
+    position: relative
+    z-index: 102
+
+
+  &__title
+    margin: 0 0 12px
+    text-align: center
+    @include calcRem(18)
+
+    //@include breakPoint(md)
+    //  @include calcRem(20)
+
+    @include breakPoint(xl)
+      @include calcRem(24)
+      margin-bottom: 20px
+
+
+  &__text
+    margin: 0
+    text-align: center
+    font-weight: 300
+    line-height: 1.35
+    @include calcRem(12)
+
+    //@include breakPoint(md)
+    //  @include calcRem(14)
+
+    @include breakPoint(xl)
+      @include calcRem(16)
+
+
+  &__close
+    background: none
+    border: 0
+    padding: 0
+    position: absolute
+    display: block
+    top: 10px
+    right: 10px
+    width: 26px
+    height: 26px
+    cursor: pointer
+    z-index: 103
+
+    span
+      font-size: 0
+
+    &::before,
+    &::after
+      content: ''
+      position: absolute
+      top: 12px
+      right: 0
+      width: 26px
+      height: 2px
+      background-color: $color-black
+      transition: all $transition-time
+
+    &::before
+      transform: rotate(45deg)
+
+    &::after
+      transform: rotate(-45deg)
+
+    &:active
+      &::before,
+      &::after
+        background-color: $color-orange
+
+    &:hover
+      &::before,
+      &::after
+        @include breakPoint(xl)
+          background-color: $color-orange
+
+
+  &__form
+    display: flex
+    flex-direction: column
+    margin: 20px auto 0
+    max-width: 240px
+    width: 100%
+
+    @include breakPoint(xl)
+      margin-top: 40px
+      max-width: 275px
+
+
+  &__field
+    display: block
+    margin-bottom: 20px
+
+    @include breakPoint(xl)
+      margin-bottom: 30px
+
+    &:last-of-type
+      margin-top: 20px
+      margin-bottom: 30px
+
+      @include breakPoint(xl)
+        margin-top: 40px
+        margin-bottom: 40px
+
+
+  &__button
+    margin: 0 auto
+
+    //@include breakPoint(md)
+    //  @include calcRem(13)
+    //  padding: 14px 10px
+    //  min-width: 220px
+
+
+  &--ov
+    #{$component}__field
+      &:last-of-type
+        margin-top: 0
+
+  &--h
+    @include breakPoint(xl)
+      padding: 40px 40px 50px
+      max-width: 889px
+

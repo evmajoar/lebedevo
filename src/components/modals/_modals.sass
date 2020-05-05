@@ -1,0 +1,26 @@
+@import "../../library/variables.sass"
+@import "../../library/mixins.sass"
+
+.modals
+  $component: & // #{component}__element
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  overflow-x: hidden
+  overflow-y: auto
+  display: none
+  justify-content: center
+  align-items: center
+  z-index: 100
+
+
+  .overlay
+    cursor: pointer
+    position: fixed
+    z-index: 101
+
+
+  &--open
+    display: flex
