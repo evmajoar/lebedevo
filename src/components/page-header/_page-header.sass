@@ -3,7 +3,10 @@
 
 .page-header
   $component: & // #{component}__element
-  background: #171717 url("#{$imageDir}bg-header.jpg") 60% 0 / cover no-repeat
+  background-color: #171717
+  background-position: 60% 0
+  background-size: cover
+  background-repeat: no-repeat
   position: relative
 
   @include breakPoint(md)

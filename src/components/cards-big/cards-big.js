@@ -17,6 +17,9 @@ $('.cards-big__tab').on('click', function() {
     spaceBetween: 7,
     slidesPerView: 3,
     freeMode: true,
+    lazy: {
+      loadPrevNext: true,
+    },
     watchSlidesVisibility: true,
     watchSlidesProgress: true,
   });
@@ -24,6 +27,9 @@ $('.cards-big__tab').on('click', function() {
   var cardGallery = new Swiper(that.closest('.cards-big').find('.cards-big__gallery-container[data-name=' + targetId + '] .cards-big__gallery-wrapper'), {
     spaceBetween: 7,
     slidesPerView: 1,
+    lazy: {
+      loadPrevNext: true,
+    },
     thumbs: {
       swiper: cardThumbs
     },

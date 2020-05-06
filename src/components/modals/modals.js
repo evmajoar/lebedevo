@@ -17,6 +17,9 @@ function openModal(el) {
       spaceBetween: 7,
       slidesPerView: 3,
       freeMode: true,
+      lazy: {
+        loadPrevNext: true,
+      },
       watchSlidesVisibility: true,
       watchSlidesProgress: true,
     });
@@ -24,6 +27,9 @@ function openModal(el) {
     var cardGallery = new Swiper(modals.find('.modal--' + name + ' .cards-big__gallery-container--karkas .cards-big__gallery-wrapper'), {
       spaceBetween: 7,
       slidesPerView: 1,
+      lazy: {
+        loadPrevNext: true,
+      },
       thumbs: {
         swiper: cardThumbs
       },
@@ -39,7 +45,10 @@ function openModal(el) {
 }
 
 
-$('.js-modal, .js-modal-h').on('click', function () {
+$('.js-modal, .js-modal-h').on('click', function (e) {
+  if($(this).is('a')) {
+    e.preventDefault();
+  }
   openModal($(this));
 });
 
